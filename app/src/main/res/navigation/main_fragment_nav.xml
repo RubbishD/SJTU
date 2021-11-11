@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main_fragment_nav"
+    app:startDestination="@id/recommendFragment">
+
+    <fragment
+        android:id="@+id/planFragment"
+        android:name="com.example.sjtu.PlanFragment"
+        android:label="fragment_plan"
+        tools:layout="@layout/fragment_plan" />
+    <fragment
+        android:id="@+id/randomFragment"
+        android:name="com.example.sjtu.RandomFragment"
+        android:label="fragment_random"
+        tools:layout="@layout/fragment_random" />
+    <fragment
+        android:id="@+id/recommendFragment"
+        android:name="com.example.sjtu.RecommendFragment"
+        android:label="fragment_recommend"
+        tools:layout="@layout/fragment_recommend" />
+    <fragment
+        android:id="@+id/uploadFragment"
+        android:name="com.example.sjtu.UploadFragment"
+        android:label="fragment_upload"
+        tools:layout="@layout/fragment_upload" />
+</navigation>

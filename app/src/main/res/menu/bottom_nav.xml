@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/recommendFragment"
+        android:icon="@mipmap/icon1"
+        android:title="推荐" />
+    <item
+        android:id="@+id/planFragment"
+        android:icon="@mipmap/icon2"
+        android:title="计划" />
+    <item
+        android:id="@+id/randomFragment"
+        android:icon="@mipmap/icon3"
+        android:title="随机" />
+    <item
+        android:id="@+id/uploadFragment"
+        android:icon="@mipmap/icon4"
+        android:title="上传" />
+</menu>
