@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="priceArray">
+        <item>低于10</item>
+        <item>10~15</item>
+        <item>15~20</item>
+        <item>20~25</item>
+        <item>25~30</item>
+        <item>多于30</item>
+    </string-array>
+
+    <string-array name="locationArray">
+        <item>一餐</item>
+        <item>二餐</item>
+        <item>三餐</item>
+        <item>四餐</item>
+        <item>五餐</item>
+        <item>六餐</item>
+    </string-array>
+
+    <string-array name="foodArray">
+        <item>需要</item>
+        <item>不需要</item>
+    </string-array>
+
+    <string-array name="hotArray">
+        <item>不辣</item>
+        <item>微辣</item>
+        <item>中辣</item>
+        <item>重辣</item>
+    </string-array>
+</resources>
