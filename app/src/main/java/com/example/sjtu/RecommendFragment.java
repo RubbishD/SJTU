@@ -2,11 +2,16 @@ package com.example.sjtu;
 
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.TextView;
+
+import com.diegodobelo.expandingview.ExpandingList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -15,11 +20,13 @@ import android.view.ViewGroup;
  */
 public class RecommendFragment extends Fragment {
 
+    private TextView mTvTitle;
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
     private String mParam1;
     private String mParam2;
+
 
     public RecommendFragment() {
         // Required empty public constructor
@@ -38,16 +45,27 @@ public class RecommendFragment extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
-        return inflater.inflate(R.layout.fragment_recommend, container, false);
+        View view = inflater.inflate(R.layout.fragment_recommend,container,false);
+        return view;
+    }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        //
+        mTvTitle = view.findViewById(R.id.tv_Title);
     }
 }
+

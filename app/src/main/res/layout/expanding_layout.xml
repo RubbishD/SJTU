@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.diegodobelo.expandingview.ExpandingItem xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    app:item_layout="@layout/expanding_item"
+    app:sub_item_layout="@layout/expanding_sub_item"
+    app:indicator_size="42dp"
+    android:layout_marginLeft="16dp"
+    android:layout_marginRight="16dp"
+    app:show_indicator="true"
+    app:show_animation="true"
+    app:start_collapsed="true"
+    app:animation_duration="250">
+
+</com.diegodobelo.expandingview.ExpandingItem>
