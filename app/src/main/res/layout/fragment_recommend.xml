@@ -1,19 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".RecommendFragment">
-
-    <!-- TODO: Update blank fragment layout -->
-    <TextView
-        android:id="@+id/tv_Title"
+    android:layout_height="match_parent">
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="推荐菜单"
-        android:textColor="#000000"
-        android:textSize="20sp"
-        android:gravity="center"
-        android:background="#D6D6D6"/>
+        android:layout_height="match_parent">
+        <!-- TODO: Update blank fragment layout -->
+        <TextView
+            android:id="@+id/tv_Title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="推荐菜单"
+            android:textColor="#000000"
+            android:textSize="30sp"
+            android:gravity="center"
+            android:background="#D6D6D6"/>
+
+        <RelativeLayout
+            android:id="@+id/relative1"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/tv_Title"
+            android:layout_marginTop="10dp"
+            android:background="@color/teal_200">
+
+            <TextView
+                android:id="@+id/tv_name1"
+                android:layout_width="100dp"
+                android:clickable="true"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="菜名"
+                android:textColor="@color/black"
+                android:textFontWeight="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_price1"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:background="@color/purple_500"
+                android:gravity="center"
+                android:text="价格"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+        <RelativeLayout
+            android:id="@+id/relative2"
+            android:layout_width="match_parent"
+            android:layout_height="100dp"
+            android:layout_below="@id/relative1"
+            android:layout_marginTop="10dp"
+            android:background="@color/teal_200">
+
+            <TextView
+                android:id="@+id/tv_name2"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_centerInParent="true"
+                android:gravity="center"
+                android:text="菜名"
+                android:textColor="@color/black"
+                android:textFontWeight="1"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/tv_price2"
+                android:layout_width="100dp"
+                android:layout_height="match_parent"
+                android:layout_centerVertical="true"
+                android:layout_alignParentEnd="true"
+                android:background="@color/purple_500"
+                android:gravity="center"
+                android:text="价格"
+                android:textSize="30sp" />
+
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
 
 </ScrollView>

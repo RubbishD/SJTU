@@ -1,5 +1,6 @@
 package com.example.sjtu;
 
+import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
@@ -9,6 +10,7 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.diegodobelo.expandingview.ExpandingList;
@@ -19,10 +21,10 @@ import com.diegodobelo.expandingview.ExpandingList;
  * create an instance of this fragment.
  */
 public class RecommendFragment extends Fragment {
-
-    private TextView mTvTitle;
+    private RelativeLayout mRelativeLayout;
+    private TextView mTvprice;
     private static final String ARG_PARAM1 = "param1";
-    private static final String ARG_PARAM2 = "param2";
+     private static final String ARG_PARAM2 = "param2";
 
     private String mParam1;
     private String mParam2;
@@ -65,7 +67,14 @@ public class RecommendFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //
-        mTvTitle = view.findViewById(R.id.tv_Title);
+        mRelativeLayout = view.findViewById(R.id.relative1);
+        mRelativeLayout.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),RecipeActivity1.class);
+                startActivity(intent);
+            }
+        });
     }
 }
 
