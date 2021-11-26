@@ -14,7 +14,7 @@
         android:layout_marginStart="156dp"
         android:layout_marginBottom="88dp"
         android:text="Random"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textViewRan"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
@@ -26,7 +26,7 @@
         android:background="@color/white"
         android:entries="@array/priceArray"
         android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
+        app:layout_constraintBottom_toTopOf="@+id/textViewRan"
         app:layout_constraintStart_toStartOf="parent" />
 
     <Spinner
@@ -42,7 +42,7 @@
         app:layout_constraintStart_toEndOf="@+id/spinner1" />
 
     <Spinner
-        android:id="@+id/spinner4"
+        android:id="@+id/spinner3"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginStart="17dp"
@@ -54,7 +54,7 @@
         app:layout_constraintStart_toEndOf="@+id/spinner2" />
 
     <Spinner
-        android:id="@+id/spinner5"
+        android:id="@+id/spinner4"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -62,11 +62,11 @@
         android:background="@color/white"
         android:entries="@array/hotArray"
         android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/editTextTextPersonName"
-        app:layout_constraintStart_toEndOf="@+id/spinner4" />
+        app:layout_constraintBottom_toTopOf="@+id/textViewRan"
+        app:layout_constraintStart_toEndOf="@+id/spinner3" />
 
     <TextView
-        android:id="@+id/textView"
+        android:id="@+id/textView1"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginStart="24dp"
@@ -81,7 +81,7 @@
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
-        android:id="@+id/textView4"
+        android:id="@+id/textView2"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginStart="11dp"
@@ -92,10 +92,10 @@
         android:textSize="20dp"
         android:gravity="center"
         app:layout_constraintBottom_toTopOf="@+id/spinner2"
-        app:layout_constraintStart_toEndOf="@+id/textView" />
+        app:layout_constraintStart_toEndOf="@+id/textView1" />
 
     <TextView
-        android:id="@+id/textView5"
+        android:id="@+id/textView3"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginStart="17dp"
@@ -105,11 +105,11 @@
         android:textColor="@color/white"
         android:textSize="20dp"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/spinner4"
-        app:layout_constraintStart_toEndOf="@+id/textView4" />
+        app:layout_constraintBottom_toTopOf="@+id/spinner3"
+        app:layout_constraintStart_toEndOf="@+id/textView2" />
 
     <TextView
-        android:id="@+id/textView6"
+        android:id="@+id/textView4"
         android:layout_width="80dp"
         android:layout_height="50dp"
         android:layout_marginStart="16dp"
@@ -119,19 +119,19 @@
         android:textColor="@color/white"
         android:textSize="20dp"
         android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/spinner5"
-        app:layout_constraintStart_toEndOf="@+id/textView5" />
+        app:layout_constraintBottom_toTopOf="@+id/spinner4"
+        app:layout_constraintStart_toEndOf="@+id/textView3" />
 
-    <EditText
-        android:id="@+id/editTextTextPersonName"
+    <TextView
+        android:id="@+id/textViewRan"
         android:layout_width="209dp"
-        android:layout_height="80dp"
-        android:layout_marginStart="101dp"
-        android:layout_marginBottom="182dp"
+        android:layout_height="180dp"
+        android:layout_marginStart="104dp"
+        android:layout_marginBottom="77dp"
         android:ems="10"
-        android:inputType="textPersonName"
-        android:text="Random Result"
         android:gravity="center"
+        android:text="Random Result"
+        android:textSize="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
