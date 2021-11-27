@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="utf-8"?>
+<navigation xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/plan_nav"
+    app:startDestination="@id/classificationFragment">
+
+    <fragment
+        android:id="@+id/classificationFragment"
+        android:name="com.example.sjtu.ClassificationFragment"
+        android:label="fragment_classification"
+        tools:layout="@layout/fragment_classification">
+        <action
+            android:id="@+id/action_classificationFragment_to_mealOrderFragment"
+            app:destination="@id/mealOrderFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/mealOrderFragment"
+        android:name="com.example.sjtu.MealOrderFragment"
+        android:label="fragment_meal_order"
+        tools:layout="@layout/fragment_meal_order" >
+        <action
+            android:id="@+id/action_mealOrderFragment_to_classificationFragment"
+            app:destination="@id/classificationFragment" />
+    </fragment>
+</navigation>
