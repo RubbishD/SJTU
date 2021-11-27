@@ -22,7 +22,7 @@ import com.diegodobelo.expandingview.ExpandingList;
  */
 public class RecommendFragment extends Fragment {
     private RelativeLayout mRelativeLayout;
-    private TextView mTvprice;
+    private TextView getmTvprice1,getmTvprice2;
     private static final String ARG_PARAM1 = "param1";
      private static final String ARG_PARAM2 = "param2";
 
@@ -67,8 +67,16 @@ public class RecommendFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //
-        mRelativeLayout = view.findViewById(R.id.relative1);
-        mRelativeLayout.setOnClickListener(new View.OnClickListener() {
+        getmTvprice1 = view.findViewById(R.id.title_recipe1);
+        getmTvprice2 = view.findViewById(R.id.title_recipe2);
+        getmTvprice1.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(getActivity(),RecipeActivity1.class);
+                startActivity(intent);
+            }
+        });
+        getmTvprice2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 Intent intent = new Intent(getActivity(),RecipeActivity1.class);
