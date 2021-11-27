@@ -8,6 +8,15 @@
 
     <!-- TODO: Update blank fragment layout -->
 
+    <fragment
+        android:id="@+id/plan_fragment_nav_host_fragment"
+        android:name="androidx.navigation.fragment.NavHostFragment"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        app:navGraph="@navigation/plan_nav"
+        app:defaultNavHost="true"/>
+
+
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
