@@ -14,6 +14,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.Button;
+import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -81,6 +82,8 @@ public class RandomFragment extends Fragment {
 
         Button randombutton = getActivity().findViewById(R.id.random);
         TextView randomres = getActivity().findViewById(R.id.textViewRan);
+        ImageView imageRes = getActivity().findViewById(R.id.imageView1);
+        //for storing spinners' selection results
         Spinner price = getActivity().findViewById(R.id.spinner1);
         Spinner place = getActivity().findViewById(R.id.spinner2);
         Spinner stfood = getActivity().findViewById(R.id.spinner3);
@@ -89,13 +92,19 @@ public class RandomFragment extends Fragment {
         final String[] placeCon = {place.getSelectedItem().toString()};
         final String[] stfoodCon = {stfood.getSelectedItem().toString()};
         final String[] spiceCon = {spice.getSelectedItem().toString()};
+        //set image view by random mechanism
+        int[] imageLs = {R.drawable.azura, R.drawable.mc, R.drawable.bdffknight, R.drawable.chocobo,
+                R.drawable.creeper, R.drawable.edea, R.drawable.cc};
+        String[] imageNameLs = {"Azura", "Minecraft", "BDFF_knights", "Chocobo",
+                "creeper", "Edea", "Castle Crahser"};
 
         randombutton.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 int num = getRandom();
-                randomres.setText("SB number." + num + "\n价格: " + priceCon[0]
-                + "\n地点: " + placeCon[0] + "\n主食: " + stfoodCon[0] + "\n辣度: " + spiceCon[0]);
+                imageRes.setImageResource(imageLs[num-1]);
+                randomres.setText("Viewname: " + imageNameLs[num-1] + "\nPrice: " + priceCon[0]
+                + "\nLocation: " + placeCon[0] + "\nStapleFood: " + stfoodCon[0] + "\nSpiceness: " + spiceCon[0]);
             }
         });
 
@@ -142,7 +151,7 @@ public class RandomFragment extends Fragment {
     }
 
     public static int getRandom() {
-        int[] array = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int[] array = new int[] {1, 2, 3, 4, 5, 6, 7};
         int rnd = new Random().nextInt(array.length);
         return array[rnd];
     }
