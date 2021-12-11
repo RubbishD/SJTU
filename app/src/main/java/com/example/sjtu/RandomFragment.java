@@ -1,12 +1,24 @@
 package com.example.sjtu;
 
+import android.content.Intent;
 import android.os.Bundle;
 
+import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.navigation.Navigation;
+import androidx.navigation.ui.NavigationUI;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.AdapterView;
+import android.widget.Button;
+import android.widget.Spinner;
+import android.widget.TextView;
+import android.widget.Toast;
+
+import java.util.Random;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -55,10 +67,84 @@ public class RandomFragment extends Fragment {
         }
     }
 
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
         return inflater.inflate(R.layout.fragment_random, container, false);
     }
+
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
+        Button randombutton = getActivity().findViewById(R.id.random);
+        TextView randomres = getActivity().findViewById(R.id.textViewRan);
+        Spinner price = getActivity().findViewById(R.id.spinner1);
+        Spinner place = getActivity().findViewById(R.id.spinner2);
+        Spinner stfood = getActivity().findViewById(R.id.spinner3);
+        Spinner spice = getActivity().findViewById(R.id.spinner4);
+        final String[] priceCon = {price.getSelectedItem().toString()};
+        final String[] placeCon = {place.getSelectedItem().toString()};
+        final String[] stfoodCon = {stfood.getSelectedItem().toString()};
+        final String[] spiceCon = {spice.getSelectedItem().toString()};
+
+        randombutton.setOnClickListener(new  View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                int num = getRandom();
+                randomres.setText("SB number." + num + "\n价格: " + priceCon[0]
+                + "\n地点: " + placeCon[0] + "\n主食: " + stfoodCon[0] + "\n辣度: " + spiceCon[0]);
+            }
+        });
+
+        price.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                 priceCon[0] = price.getSelectedItem().toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        place.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                placeCon[0] = place.getSelectedItem().toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        stfood.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                stfoodCon[0] = stfood.getSelectedItem().toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        spice.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                spiceCon[0] = spice.getSelectedItem().toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+    }
+
+    public static int getRandom() {
+        int[] array = new int[] {1, 2, 3, 4, 5, 6, 7, 8, 9, 10};
+        int rnd = new Random().nextInt(array.length);
+        return array[rnd];
+    }
+
 }
