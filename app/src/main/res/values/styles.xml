@@ -19,8 +19,8 @@
 
     </style>
 
-    <style name="ContentMainBadgeTitle" parent="AppTheme">
-        <item name="android:textColor">@color/contentBadgeTitle</item>
+    <style name="WhiteGray" parent="AppTheme">
+        <item name="android:textColor">@color/white_gray</item>
         <item name="android:textSize">12dp</item>
     </style>
 

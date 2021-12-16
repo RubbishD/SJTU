@@ -18,22 +18,21 @@
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:background="@color/teal_200"
-        android:src="@mipmap/icon2"
         android:scaleType="centerCrop"
-        />
+        android:src="@mipmap/icon2" />
     <RelativeLayout
         android:id="@id/name_recipe"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_toRightOf="@id/iv_recipe">
+
         <TextView
             android:id="@+id/name_recipe"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
             android:text="菜名："
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
         <TextView
             android:id="@+id/name_recipe1"
@@ -121,16 +120,16 @@
         android:id="@+id/time"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_toRightOf="@id/price_recipe"
         android:layout_below="@id/location_recipe"
+        android:layout_toRightOf="@id/price_recipe"
         android:paddingLeft="20dp">
+
         <TextView
             android:id="@id/time"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="时间："
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
 
         <TextView
             android:layout_width="wrap_content"
@@ -168,21 +167,21 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/raw_material">
+
         <TextView
             android:id="@id/spicy"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="辣度："
-            android:textSize="20sp"
-            />
+            android:textSize="20sp" />
+
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_toRightOf="@id/spicy"
-            android:text="****"
-            android:textSize="20sp"
             android:gravity="center"
-            />
+            android:text="****"
+            android:textSize="20sp" />
     </RelativeLayout>
 
     <RelativeLayout

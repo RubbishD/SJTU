@@ -1,16 +1,292 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="50dp">
-    <TextView
-        android:id="@+id/tv_sub_title"
+    android:layout_height="match_parent"
+    android:orientation="vertical">
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_centerVertical="true"
-        android:layout_marginStart="8dp"
-        android:textSize="20sp"
-        android:gravity="center_vertical|start"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:background="@drawable/namebackground">
+        <TextView
+            android:id="@+id/food_name"
+            android:layout_width="match_parent"
+            android:layout_height="80dp"
+            android:background="@drawable/namebackground"
+            android:paddingBottom="10dp"
+            android:text="菜名"
+            android:fontFamily="@font/qinchuanfeiying"
+            android:gravity="center"
+            android:textSize="40sp" />
+        <RelativeLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/food_name">
 
-</RelativeLayout>
+            <ImageView
+                android:id="@+id/food_img"
+                android:layout_width="100dp"
+                android:layout_height="100dp"
+                android:src="@mipmap/icon2" />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="100dp"
+                android:layout_toRightOf="@id/food_img"
+                android:orientation="vertical"
+                android:background="@drawable/namebackground"
+                >
+
+                <TextView
+                    android:id="@+id/location"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
+                    android:fontFamily="@font/simhei"
+                    android:layout_marginTop="5dp"
+                    android:gravity="center"
+                    android:text="第二餐饮大楼一楼西餐厅"
+                    android:textSize="20sp"
+                    android:typeface="serif"
+                    android:textStyle="bold"/>
+
+
+                <TextView
+                    android:id="@+id/merchant"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/simhei"
+                    android:gravity="center"
+                    android:textSize="20sp"
+                    android:typeface="serif"
+                    android:text="木桶饭"
+                    android:textStyle="bold"
+                    android:paddingTop="3dp"
+                    android:paddingBottom="3dp"
+                    />
+                <TextView
+                    android:id="@+id/single_price"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:fontFamily="@font/simhei"
+                    android:gravity="center"
+                    android:textSize="30sp"
+                    android:typeface="serif"
+                    android:text="￥12"
+                    android:textStyle="bold"/>
+
+            </LinearLayout>
+        </RelativeLayout>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="7dp"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:paddingBottom="7dp">
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/single_time"
+                style="@style/WhiteGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="供应时间" />
+
+            <TextView
+                android:id="@+id/single_time1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/single_time"
+                android:layout_centerInParent="true"
+                android:text="全天"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+            <TextView
+                android:id="@+id/single_time2"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_centerInParent="true"
+                android:layout_below="@id/single_time1"
+                android:text="全天"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+            <TextView
+                android:id="@+id/single_time3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/single_time2"
+                android:layout_centerInParent="true"
+                android:text="全天"
+                android:textColor="@color/black"
+                android:textSize="18sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/single_material_title"
+                style="@style/WhiteGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="原料" />
+
+            <TextView
+                android:id="@+id/single_material"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/single_material_title"
+                android:layout_centerInParent="true"
+                android:text="全天"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/single_material"
+                android:layout_marginTop="5dp">
+
+                <TextView
+                    android:id="@+id/single_calorie_title"
+                    style="@style/WhiteGray"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentStart="true"
+                    android:layout_alignParentLeft="true"
+                    android:text="卡路里" />
+
+                <TextView
+                    android:id="@+id/single_calorie"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerInParent="true"
+                    android:text="@string/calorie"
+                    android:textColor="@color/black"
+                    android:textSize="25sp"
+                    android:textStyle="bold" />
+
+            </RelativeLayout>
+
+
+        </RelativeLayout>
+
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:paddingTop="7dp"
+        android:paddingRight="12dp"
+        android:paddingLeft="12dp"
+        android:paddingBottom="7dp">
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+
+            <TextView
+                android:id="@+id/single_spicy_title"
+                style="@style/WhiteGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_alignParentStart="true"
+                android:layout_alignParentLeft="true"
+                android:text="辣度" />
+
+            <TextView
+                android:id="@+id/single_spicy"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/single_spicy_title"
+                android:layout_centerInParent="true"
+                android:text="辣"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/single_vegetat_title"
+                style="@style/WhiteGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="荤素" />
+
+            <TextView
+                android:id="@+id/single_vegetat"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/single_vegetat_title"
+                android:layout_centerInParent="true"
+                android:text="荤素"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1">
+            <TextView
+                android:id="@+id/single_staple_title"
+                style="@style/WhiteGray"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:singleLine="false"
+                android:layout_alignParentLeft="true"
+                android:layout_alignParentStart="true"
+                android:text="荤素" />
+
+            <TextView
+                android:id="@+id/single_staple"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/single_staple_title"
+                android:layout_centerInParent="true"
+                android:text="荤素"
+                android:textColor="@color/black"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+        </RelativeLayout>
+
+    </LinearLayout>
+
+
+</LinearLayout>
+
+

@@ -1,5 +1,6 @@
 package com.example.sjtu;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 
@@ -10,10 +11,14 @@ import androidx.fragment.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.diegodobelo.expandingview.ExpandingList;
+import com.google.android.gms.ads.mediation.Adapter;
+
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,11 +26,12 @@ import com.diegodobelo.expandingview.ExpandingList;
  * create an instance of this fragment.
  */
 public class RecommendFragment extends Fragment {
-    private RelativeLayout mRelativeLayout;
-    private TextView getmTvprice1,getmTvprice2;
     private static final String ARG_PARAM1 = "param1";
-     private static final String ARG_PARAM2 = "param2";
-
+    private static final String ARG_PARAM2 = "param2";
+    private Context context;
+    private LinearLayout linearLayout;
+    private MealRecommendAdapter mealRecommendAdapter = null;
+    private ArrayList<ArrayList<Food>> FoodList = null;
     private String mParam1;
     private String mParam2;
 
