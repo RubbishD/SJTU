@@ -1,13 +1,10 @@
 package com.example.sjtu;
 
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
-import androidx.navigation.ui.NavigationUI;
 
 import android.view.LayoutInflater;
 import android.view.View;
@@ -17,7 +14,9 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
-import android.widget.Toast;
+
+import org.json.JSONArray;
+import org.json.JSONException;
 
 import java.util.Random;
 
@@ -98,13 +97,51 @@ public class RandomFragment extends Fragment {
         String[] imageNameLs = {"Azura", "Minecraft", "BDFF_knights", "Chocobo",
                 "creeper", "Edea", "Castle Crahser"};
 
+
         randombutton.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View view) {
+                String param = "username=root&message=123";
+
+                class RanRunable implements Runnable {
+                    String param;
+                    String[] result;
+                    public RanRunable(String param1, String[] param2){
+                        param = param1;
+                        result = param2;
+                    }
+                    @Override
+                    public void run() {
+                        HttpRequest request = new HttpRequest();
+                        String url0 = "http://119.3.110.15:33"; // http://119.3.110.15:33
+                        // param = "username=root&message=123"; // param string of get request
+                        result[0] = request.get((url0+"/?"+param));
+                        JSONArray arr = null;
+                        try {
+                            arr = new JSONArray(result[0]); // [{}]
+                        } catch (JSONException e) {
+                            e.printStackTrace();
+                        }
+                    }
+                    public String getResult(){
+                        return result[0];
+                    }
+                }
+
+                String[] result0 = {"asdsdds"}; //start thread
+                RanRunable r1 = new RanRunable(param, result0);
+                Thread t = new Thread(r1);
+                t.start();
+                try {
+                    t.join();
+                } catch (InterruptedException e) {
+                    e.printStackTrace();
+                }
                 int num = getRandom();
                 imageRes.setImageResource(imageLs[num-1]);
                 randomres.setText("Viewname: " + imageNameLs[num-1] + "\nPrice: " + priceCon[0]
-                + "\nLocation: " + placeCon[0] + "\nStapleFood: " + stfoodCon[0] + "\nSpiceness: " + spiceCon[0]);
+                        + "\tLocation: " + placeCon[0] + "\tStapleFood: " + stfoodCon[0] + "\tSpiceness: " + spiceCon[0]
+                        + "\nResult: " + result0[0]);
             }
         });
 
