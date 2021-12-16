@@ -1,0 +1,13 @@
+<resources>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="WhiteGray" parent="AppTheme">
+        <item name="android:textColor">#a9a9a9</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+</resources>
