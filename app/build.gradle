@@ -88,4 +88,5 @@ dependencies {
     // optional - Paging 3 Integration
 //    implementation "androidx.room:room-paging:2.4.0-beta01"
     //
+    implementation 'com.laocaixw.suspendbuttonlayout:suspendbuttonlayout:1.0.3'
 }
