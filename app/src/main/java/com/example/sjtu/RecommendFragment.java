@@ -6,14 +6,18 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Adapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.diegodobelo.expandingview.ExpandingList;
+import com.ramotion.foldingcell.FoldingCell;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -21,13 +25,10 @@ import com.diegodobelo.expandingview.ExpandingList;
  * create an instance of this fragment.
  */
 public class RecommendFragment extends Fragment {
-    private RelativeLayout mRelativeLayout;
-    private TextView getmTvprice1,getmTvprice2;
-    private static final String ARG_PARAM1 = "param1";
-     private static final String ARG_PARAM2 = "param2";
 
-    private String mParam1;
-    private String mParam2;
+    private RecyclerView food_view;
+    private FoodAdapter adapter;
+    private RecyclerView.LayoutManager layoutManager;
 
 
     public RecommendFragment() {
@@ -38,8 +39,6 @@ public class RecommendFragment extends Fragment {
     public static RecommendFragment newInstance(String param1, String param2) {
         RecommendFragment fragment = new RecommendFragment();
         Bundle args = new Bundle();
-        args.putString(ARG_PARAM1, param1);
-        args.putString(ARG_PARAM2, param2);
         fragment.setArguments(args);
         return fragment;
     }
@@ -49,9 +48,10 @@ public class RecommendFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-            mParam1 = getArguments().getString(ARG_PARAM1);
-            mParam2 = getArguments().getString(ARG_PARAM2);
+
         }
+
+
     }
 
 
@@ -66,23 +66,15 @@ public class RecommendFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        //
-        getmTvprice1 = view.findViewById(R.id.title_recipe1);
-        getmTvprice2 = view.findViewById(R.id.title_recipe2);
-        getmTvprice1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),RecipeActivity1.class);
-                startActivity(intent);
-            }
-        });
-        getmTvprice2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),RecipeActivity1.class);
-                startActivity(intent);
-            }
-        });
+        food_view = (RecyclerView)getView().findViewById(R.id.food_recycle);
+        layoutManager = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
+        adapter = new FoodAdapter();
+
+        food_view.setAdapter(adapter);
+        food_view.setLayoutManager(layoutManager);
     }
+
+
+
 }
 
