@@ -42,4 +42,21 @@
         <item name="android:background">@color/white</item>
         <item name="android:spinnerMode">dropdown</item>
     </style>
+
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <item name="colorPrimary">@color/colorPrimary</item>
+        <item name="colorPrimaryDark">@color/colorPrimaryDark</item>
+        <item name="android:typeface">sans</item>
+    </style>
+
+    <style name="WhiteGray" parent="AppTheme">
+        <item name="android:textColor">@color/white_gray</item>
+        <item name="android:textSize">12dp</item>
+    </style>
+
+    <style name="WhiteGray." parent="AppTheme">
+        <item name="android:textColor">@color/white_gray</item>
+        <item name="android:textSize">18dp</item>
+    </style>
 </resources>
+

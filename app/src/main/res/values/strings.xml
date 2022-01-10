@@ -94,5 +94,7 @@
     </string>
 
     <string name="randomtext">Random Result</string>
+    <string name="calorie">卡路里</string>
+    <string name="taste">口味</string>
 
 </resources>

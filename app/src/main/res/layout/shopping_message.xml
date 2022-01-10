@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <ImageView
+        android:id="@+id/shopping_food_image"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:layout_marginLeft="4dp"
+        android:src="@mipmap/add"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/shopping_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@+id/shopping_food_image"
+        app:layout_constraintTop_toTopOf="parent"
+        android:paddingLeft="10dp"
+        android:text="菜名"
+        android:textSize="14sp"
+        android:textColor="@color/black"
+        android:fontFamily="sans-serif"
+        />
+    <TextView
+        android:id="@+id/shopping_food_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintLeft_toRightOf="@id/shopping_food_image"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:paddingLeft="10dp"
+        android:text="￥3.9"
+        android:textColor="@color/red"
+        android:textSize="14sp"
+        android:fontFamily="sans-serif"
+        />
+
+    <TextView
+        android:id="@+id/shopping_food_number"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        app:layout_constraintRight_toLeftOf="@id/meal_shopping_food_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:text="0"
+        android:fontFamily="sans-serif"
+        android:textSize="14sp"
+        />
+
+    <ImageView
+        android:id="@+id/meal_shopping_food_reduce"
+        android:layout_width="25dp"
+        android:layout_height="25sp"
+        app:layout_constraintRight_toLeftOf="@id/shopping_food_number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@mipmap/reduce"/>
+
+    <ImageView
+        android:id="@+id/meal_shopping_food_add"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@mipmap/add"
+        />
+</androidx.constraintlayout.widget.ConstraintLayout>
