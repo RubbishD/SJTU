@@ -1,99 +1,105 @@
 package com.example.sjtu;
 
-import android.content.ClipData;
+
 import android.content.Context;
 import android.content.Intent;
-import android.os.Bundle;
-import android.provider.ContactsContract;
-import android.util.SparseArray;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ArrayAdapter;
-import android.widget.BaseAdapter;
-import android.widget.ImageButton;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
-import androidx.work.Data;
 
-import org.jetbrains.annotations.NotNull;
-
-import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.LinkedList;
 
-public abstract class MealRecommendAdapter extends BaseAdapter {
-    private ArrayList<Food> mData;
-    private Context mContext; //布局id
-    private View.OnClickListener defaultRequestBtnClickListener;
+public class MealRecommendAdapter extends RecyclerView.Adapter<MealRecommendAdapter.ViewHolder> {
 
-    public MealRecommendAdapter() {
+    private ArrayList<Meal> mdata;
+    private Context mcontext;
+
+    public MealRecommendAdapter(ArrayList<Meal> data,Context context) {
+        this.mdata = data;
+        this.mcontext = context;
+
     }
 
-    public MealRecommendAdapter(ArrayList mData, Context mContext) {
-        this.mData = mData;
-        this.mContext = mContext;
+    public MealRecommendAdapter(ArrayList<Meal> mdata) {
     }
 
-    @Override
-    public int getCount() {
-        return mData != null ? mData.size() : 0;
-    }
+    public class ViewHolder extends RecyclerView.ViewHolder{
 
-    @Override
-    public Object getItem(int position) {
-        return mData.get(position);
-    }
+        private final TextView price;
+        private final TextView location;
+        private final TextView calorie;
+        private final TextView spicy;
+        private final TextView number;
+        private final TextView name;
+        private final ImageView addbtn;
+        private final ImageView reducebtn;
+        private int num = 0;
+        public ViewHolder(View view){
+            super(view);
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
+            price = view.findViewById(R.id.meal_price);
+            location = view.findViewById(R.id.meal_location);
+            calorie = view.findViewById(R.id.meal_calorie);
+            spicy = view.findViewById(R.id.meal_spicy);
+            addbtn = view.findViewById(R.id.meal_shopping_food_add);
+            reducebtn = view.findViewById(R.id.meal_shopping_food_reduce);
+            number = view.findViewById(R.id.meal_shopping_food_number);
+            name = view.findViewById(R.id.meal_food_name);
+            addbtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    num++;
+                    number.setText(""+num);
+                }
+            });
 
-    @Override
-    public View getView(final int position, View convertView, ViewGroup parent) {
-        if (convertView == null) {
-            convertView = LayoutInflater.from(mContext).inflate(R.layout.activity_recipe1, parent, false);
+            reducebtn.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    if(num>0){
+                        num--;
+                        number.setText((""+num));
+                    }
+                }
+            });
+
+            name.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(mcontext,RecipeActivity.class);
+                    mcontext.startActivity(intent);
+                }
+            });
         }
-        final RelativeLayout relativeLayout = convertView.findViewById(R.id.Relative_name);
-        final TextView price_num = convertView.findViewById(R.id.price_num);
-        final TextView canteen = convertView.findViewById(R.id.canteen_label);
-        final TextView floor = convertView.findViewById(R.id.floor_label);
-        final TextView food1 = convertView.findViewById((R.id.name1));
-        final TextView food2 = convertView.findViewById(R.id.name2);
-        final TextView taste = convertView.findViewById(R.id.taste);
-        final TextView calorie = convertView.findViewById(R.id.calorie);
-        final ImageView del_btn = convertView.findViewById(R.id.delBtn);
-        final ImageView add_btn = convertView.findViewById(R.id.addBtn);
-        final TextView order_num = convertView.findViewById(R.id.order_num);
-        final int num=0;
 
-        relativeLayout.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Intent intent = new Intent(mContext,RecipeActivity1.class);
-                Bundle recipe_msg = new Bundle();
-                recipe_msg.putSerializable("recipe", mData);
-                intent.putExtra("recipe",recipe_msg);
-                mContext.startActivity(intent);
-            }
-        });
-        add_btn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                num++;
-                order_num.setText(""+num);
-            }
-        });
-        return convertView;
-
-
+        public void setData(Meal food) {
+        }
     }
 
-    static class ViewHolder(View view){
 
+    @NonNull
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        View view = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.meal_list,viewGroup,false);
+        return new ViewHolder(view);
     }
+
+    @Override
+    public void onBindViewHolder(ViewHolder viewHolder, int position) {
+        viewHolder.setData(mdata.get(position));
+    }
+
+    @Override
+    public int getItemCount() {
+        if(mdata!=null){
+            return mdata.size();}
+        return 0;
+    }
+
 }

@@ -1,161 +1,159 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:background="@color/white"
-    android:baselineAligned="false"
-    android:paddingTop="10dp"
-    android:orientation="horizontal">
+    android:layout_height="wrap_content">
 
-    <!-- LEFT TITLE PART -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="155dp"
-        android:layout_weight="3"
-        android:background="@color/purple_400"
-        android:gravity="center_horizontal"
-        android:orientation="vertical"
-        android:paddingBottom="20dp"
-        android:paddingLeft="10dp"
-        android:paddingRight="10dp"
-        android:paddingTop="20dp">
+    <View
+        android:id="@+id/view"
+        android:layout_width="0dp"
+        android:layout_height="178dp"
+        android:background="@color/colorPrimary"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintRight_toLeftOf="@id/view2"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 
-        <TextView
-            android:id="@+id/price_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:gravity="center"
-            android:textColor="@android:color/white"
-            android:textSize="26sp"
-            android:text="￥100"/>
-
-        <TextView
-            android:id="@+id/canteen_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentBottom="true"
-            android:text="楼层"
-            android:textColor="@android:color/white"
-            android:textSize="18sp" />
-
-        <TextView
-            android:id="@+id/floor_label"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_above="@id/canteen_label"
-            android:layout_alignParentLeft="true"
-            android:layout_alignParentStart="true"
-            android:textColor="@android:color/white"
-            android:textSize="18sp"
-            android:text="餐厅"/>
-
-
-    </RelativeLayout>
-    <!-- RIGHT TITLE PART -->
-    <RelativeLayout
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:layout_weight="1"
+    <View
+        android:id="@+id/view2"
+        android:layout_width="0dp"
+        android:layout_height="178dp"
         android:background="@color/white"
-        android:paddingStart="15dp"
-        android:paddingLeft="15dp"
-        android:paddingTop="20dp"
-        android:paddingEnd="20dp"
-        android:paddingRight="20dp"
-        android:paddingBottom="20dp">
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintHorizontal_weight="3"
+        app:layout_constraintLeft_toRightOf="@id/view"
+        app:layout_constraintRight_toRightOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        tools:layout_constraintHorizontal_weight="3" />
+
+    <TextView
+        android:id="@+id/meal_price"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:fontFamily="serif"
+        android:text="￥16"
+        android:textSize="25sp"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/meal_location"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="5dp"
+        android:layout_marginEnd="5dp"
+        android:gravity="center"
+        android:text="第二餐饮大楼二楼西餐厅"
+        android:textStyle="bold"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/view"
+        app:layout_constraintHorizontal_weight="1"
+        app:layout_constraintStart_toStartOf="@+id/view"
+        app:layout_constraintTop_toBottomOf="@+id/meal_price"
+        tools:singleLine="false" />
 
 
-<RelativeLayout
-    android:id="@+id/Relative_name"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent">
-        <TextView
-            android:id="@+id/name1"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_marginTop="-5dp"
-            android:ellipsize="marquee"
-            android:fadingEdge="horizontal"
-            android:singleLine="true"
-            android:layout_centerHorizontal="true"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:text="菜名1"
-            />
+    <TextView
+        android:id="@+id/meal_calorie_title"
+        style="@style/WhiteGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="卡路里"
+        app:layout_constraintBottom_toTopOf="@+id/meal_calorie"
+        app:layout_constraintStart_toStartOf="@+id/meal_spicy_title" />
+
+    <TextView
+        android:id="@+id/meal_calorie"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="10dp"
+        android:fontFamily="sans-serif"
+        android:text="120卡"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toBottomOf="@+id/view2"
+        app:layout_constraintStart_toStartOf="@+id/meal_spicy" />
+
+    <TextView
+        android:id="@+id/meal_spicy_title"
+        style="@style/WhiteGray"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:text="辣度"
+        app:layout_constraintBottom_toTopOf="@+id/meal_spicy"
+        app:layout_constraintStart_toEndOf="@+id/view"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.903" />
+
+    <TextView
+        android:id="@+id/meal_spicy"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="15dp"
+        android:layout_marginBottom="15dp"
+        android:fontFamily="sans-serif"
+        android:text="辣"
+        android:textColor="@color/black"
+        android:textSize="18sp"
+        app:layout_constraintBottom_toTopOf="@+id/meal_calorie_title"
+        app:layout_constraintStart_toEndOf="@+id/meal_spicy_title"
+        app:layout_constraintTop_toBottomOf="@+id/meal_price" />
+
+    <androidx.constraintlayout.widget.Barrier
+        android:id="@+id/barrier"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:barrierDirection="end"
+        app:constraint_referenced_ids="meal_spicy,meal_calorie" />
+
+    <TextView
+        android:id="@+id/meal_shopping_food_number"
+        android:layout_width="40dp"
+        android:layout_height="25dp"
+        app:layout_constraintRight_toLeftOf="@id/meal_shopping_food_add"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:gravity="center"
+        android:text="0"
+        android:fontFamily="sans-serif"
+        android:textSize="14sp"
+        />
+
+    <ImageView
+        android:id="@+id/meal_shopping_food_reduce"
+        android:layout_width="25dp"
+        android:layout_height="25sp"
+        app:layout_constraintRight_toLeftOf="@id/meal_shopping_food_number"
+        app:layout_constraintBottom_toBottomOf="parent"
+        android:src="@mipmap/reduce"/>
+
+    <ImageView
+        android:id="@+id/meal_shopping_food_add"
+        android:layout_width="25dp"
+        android:layout_height="25dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:src="@mipmap/add"
+        />
+
+    <TextView
+        android:id="@+id/meal_food_name"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="3dp"
+        android:layout_marginBottom="9dp"
+        android:text="韩式泡菜+蛋包饭"
+        android:textSize="20sp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toEndOf="@+id/meal_calorie"
+        app:layout_constraintTop_toTopOf="parent" />
 
 
 
-        <TextView
-            android:id="@+id/name2"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:ellipsize="marquee"
-            android:fadingEdge="horizontal"
-            android:singleLine="true"
-            android:paddingTop= "10dp"
-            android:layout_centerHorizontal="true"
-            android:layout_below="@+id/name1"
-            android:textColor="@android:color/black"
-            android:textSize="20sp"
-            android:text="菜名2"/>
 
-</RelativeLayout>
-
-
-        <TextView
-            android:id="@+id/taste"
-            style="@style/TitleBadgeTitle"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentStart="true"
-            android:layout_alignParentRight="true"
-            android:layout_alignParentBottom="true"
-            android:text="@string/taste"
-            android:textSize="21sp" />
-
-        <TextView
-            android:id="@+id/calorie"
-            style="@style/TitleBadgeText"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toRightOf="@id/taste"
-            android:paddingLeft="20dp"
-            android:text="@string/calorie" />
-
-        <TextView
-            android:id="@+id/order_num"
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:layout_alignParentBottom="true"
-            android:layout_toLeftOf="@id/addBtn"
-            android:gravity="center"
-            android:paddingRight="10dp"
-            android:text="0" />
-
-        <ImageButton
-            android:id="@+id/delBtn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:scaleType="center"
-            android:src="@mipmap/del"
-            android:layout_toLeftOf="@id/order_num"
-            android:layout_alignParentBottom="true"/>
-
-        <ImageButton
-            android:id="@+id/addBtn"
-            android:layout_width="20dp"
-            android:layout_height="20dp"
-            android:layout_marginEnd="15dp"
-            android:src="@mipmap/add"
-            android:layout_alignParentBottom="true"
-            android:layout_alignParentEnd="true"
-            android:layout_alignParentRight="true"
-            android:paddingLeft="10dp"/>
-    </RelativeLayout>
-
-</LinearLayout>
+</androidx.constraintlayout.widget.ConstraintLayout>

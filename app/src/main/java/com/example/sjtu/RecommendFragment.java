@@ -1,22 +1,16 @@
 package com.example.sjtu;
 
-import android.content.Context;
-import android.content.Intent;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-import android.widget.RelativeLayout;
-import android.widget.TextView;
-
-import com.diegodobelo.expandingview.ExpandingList;
-import com.google.android.gms.ads.mediation.Adapter;
 
 import java.util.ArrayList;
 
@@ -28,10 +22,10 @@ import java.util.ArrayList;
 public class RecommendFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Context context;
-    private LinearLayout linearLayout;
-    private MealRecommendAdapter mealRecommendAdapter = null;
-    private ArrayList<ArrayList<Food>> FoodList = null;
+    private RecyclerView recyclerView;
+    private RecyclerView.Adapter adapter;
+    private RecyclerView.LayoutManager layout;
+    private ArrayList<Meal> mdata;
     private String mParam1;
     private String mParam2;
 
@@ -73,22 +67,37 @@ public class RecommendFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
         //
-        getmTvprice1 = view.findViewById(R.id.title_recipe1);
-        getmTvprice2 = view.findViewById(R.id.title_recipe2);
-        getmTvprice1.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),RecipeActivity1.class);
-                startActivity(intent);
-            }
-        });
-        getmTvprice2.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getActivity(),RecipeActivity1.class);
-                startActivity(intent);
-            }
-        });
+        init();
+    }
+
+    private void init(){
+        recyclerView = (RecyclerView)getView().findViewById(R.id.recommend_list);
+        getData();
+        adapter = new MealRecommendAdapter(mdata);
+
+
+        layout = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
+
+        recyclerView.setLayoutManager(layout);
+        recyclerView.setAdapter(adapter);
+    }
+    //初始化模拟数据
+    private void getData() {
+        mdata = new ArrayList<Meal>();
+        for (int i = 0;i<4;i++){
+            Meal hhdata = new Meal();
+//            int j = Datas[i].length;
+//            for(int j = 0;j<Datas[i].length;j++){
+//                data.price += Dates[i][j];
+//            }
+            hhdata.price = i;
+            hhdata.location = "第"+i+"餐饮大楼"+"第"+i+"楼"+"西餐厅";
+            hhdata.calorie = i+100;
+            hhdata.spicy = "辣";
+            hhdata.name = "青椒炒肉"+i;
+            mdata.add(hhdata);
+        }
+
     }
 }
 
