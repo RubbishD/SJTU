@@ -1,23 +1,37 @@
 package com.example.sjtu;
 
+import android.graphics.Bitmap;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
 import android.widget.AdapterView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import org.json.JSONArray;
 import org.json.JSONException;
+import org.json.JSONObject;
 
+import java.io.BufferedInputStream;
+import java.io.IOException;
+import java.io.InputStream;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.net.URLConnection;
 import java.util.Random;
 
 /**
@@ -81,27 +95,39 @@ public class RandomFragment extends Fragment {
 
         Button randombutton = getActivity().findViewById(R.id.random);
         TextView randomres = getActivity().findViewById(R.id.textViewRan);
-        ImageView imageRes = getActivity().findViewById(R.id.imageView1);
+        //ImageView imageRes = getActivity().findViewById(R.id.imageView1);
+        WebView webRes = getActivity().findViewById(R.id.webView1);
         //for storing spinners' selection results
-        Spinner price = getActivity().findViewById(R.id.spinner1);
+        Spinner priceLow = getActivity().findViewById(R.id.spinner1);
+        Spinner priceHigh = getActivity().findViewById(R.id.spinner5);
         Spinner place = getActivity().findViewById(R.id.spinner2);
         Spinner stfood = getActivity().findViewById(R.id.spinner3);
         Spinner spice = getActivity().findViewById(R.id.spinner4);
-        final String[] priceCon = {price.getSelectedItem().toString()};
+        final String[] priceLowCon = {priceLow.getSelectedItem().toString()};
+        final String[] priceHighCon = {priceHigh.getSelectedItem().toString()};
         final String[] placeCon = {place.getSelectedItem().toString()};
         final String[] stfoodCon = {stfood.getSelectedItem().toString()};
         final String[] spiceCon = {spice.getSelectedItem().toString()};
-        //set image view by random mechanism
-        int[] imageLs = {R.drawable.azura, R.drawable.mc, R.drawable.bdffknight, R.drawable.chocobo,
-                R.drawable.creeper, R.drawable.edea, R.drawable.cc};
-        String[] imageNameLs = {"Azura", "Minecraft", "BDFF_knights", "Chocobo",
-                "creeper", "Edea", "Castle Crahser"};
 
+        //set image view by random mechanism
+        //int[] imageLs = {R.drawable.azura, R.drawable.mc, R.drawable.bdffknight, R.drawable.chocobo,
+               // R.drawable.creeper, R.drawable.edea, R.drawable.cc};
+
+        WebSettings webSettings = webRes.getSettings();
+        webSettings.setLoadWithOverviewMode(true);
+        webSettings.setUseWideViewPort(true);// viewport
+        webSettings.setBuiltInZoomControls(true);
+        webSettings.setDisplayZoomControls(false);
+        webSettings.setSupportZoom(true);
+
+        webRes.loadUrl("https://imgb15.photophoto.cn/20201209/zhengtaohaimianbaobaotouxianghuangsetouxiangtupian-40035084_3.jpg");
 
         randombutton.setOnClickListener(new  View.OnClickListener() {
+
             @Override
             public void onClick(View view) {
-                String param = "username=root&message=123";
+                String param = "price_low="+priceLowCon[0]+"&price_high="+priceHighCon[0]
+                        +"&location="+placeCon[0]+"&staple="+stfoodCon[0]+"&spicy="+spiceCon[0];
 
                 class RanRunable implements Runnable {
                     String param;
@@ -113,23 +139,14 @@ public class RandomFragment extends Fragment {
                     @Override
                     public void run() {
                         HttpRequest request = new HttpRequest();
-                        String url0 = "http://119.3.110.15:33"; // http://119.3.110.15:33
+                        String url0 = "http://119.3.110.15:33/random"; // http://119.3.110.15:33
                         // param = "username=root&message=123"; // param string of get request
-                        result[0] = request.get((url0+"/?"+param));
-                        JSONArray arr = null;
-                        try {
-                            arr = new JSONArray(result[0]); // [{}]
-                        } catch (JSONException e) {
-                            e.printStackTrace();
-                        }
-                    }
-                    public String getResult(){
-                        return result[0];
+                        result[0] = request.get((url0+"?"+param));
                     }
                 }
 
-                String[] result0 = {"asdsdds"}; //start thread
-                RanRunable r1 = new RanRunable(param, result0);
+                String[] resultOut = {"asdsdds"}; //start thread
+                RanRunable r1 = new RanRunable(param, resultOut);
                 Thread t = new Thread(r1);
                 t.start();
                 try {
@@ -137,18 +154,41 @@ public class RandomFragment extends Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
-                int num = getRandom();
-                imageRes.setImageResource(imageLs[num-1]);
-                randomres.setText("Viewname: " + imageNameLs[num-1] + "\nPrice: " + priceCon[0]
-                        + "\tLocation: " + placeCon[0] + "\tStapleFood: " + stfoodCon[0] + "\tSpiceness: " + spiceCon[0]
-                        + "\nResult: " + result0[0]);
+
+                String imageUrl = "";
+                try {
+                    JSONArray arr = new JSONArray(resultOut[0]);
+                    JSONObject obj = arr.getJSONObject(0);
+                    randomres.setText("Name:"+ obj.get("food")+ "\nPrice: " + obj.get("price")
+                            + "\nRestaurant: " + obj.get("restaurant") + "\nWindow:" + obj.get("merchant")
+                            + "\n:" + obj.get("img_url")
+                    );
+                    imageUrl = obj.get("img_url").toString();
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+
+                //int num = getRandom();
+                //imageRes.setImageResource(imageLs[num-1]);
+                webRes.loadUrl(imageUrl);
+
             }
         });
 
-        price.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+        priceLow.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
             @Override
             public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
-                 priceCon[0] = price.getSelectedItem().toString();
+                 priceLowCon[0] = priceLow.getSelectedItem().toString();
+            }
+            @Override
+            public void onNothingSelected(AdapterView<?> parent) {
+            }
+        });
+
+        priceHigh.setOnItemSelectedListener(new Spinner.OnItemSelectedListener() {
+            @Override
+            public void onItemSelected(AdapterView<?> parent, View view, int position, long id) {
+                priceHighCon[0] = priceHigh.getSelectedItem().toString();
             }
             @Override
             public void onNothingSelected(AdapterView<?> parent) {
@@ -186,6 +226,7 @@ public class RandomFragment extends Fragment {
         });
 
     }
+
 
     public static int getRandom() {
         int[] array = new int[] {1, 2, 3, 4, 5, 6, 7};
