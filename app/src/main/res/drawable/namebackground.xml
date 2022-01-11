@@ -24,9 +24,6 @@
         android:top="10dp"
         android:right="10dp"
         android:bottom="10dp" />
-    <size
-        android:width="200dp"
-        android:height="200dp" />
     <stroke
         android:width="7dp"
         android:color="@color/colorAccent"

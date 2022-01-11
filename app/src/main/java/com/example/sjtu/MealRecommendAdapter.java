@@ -30,14 +30,14 @@ public class MealRecommendAdapter extends RecyclerView.Adapter<MealRecommendAdap
 
     public class ViewHolder extends RecyclerView.ViewHolder{
 
-        private final TextView price;
-        private final TextView location;
-        private final TextView calorie;
-        private final TextView spicy;
-        private final TextView number;
-        private final TextView name;
-        private final ImageView addbtn;
-        private final ImageView reducebtn;
+        private TextView price;
+        private TextView location;
+        private TextView calorie;
+        private TextView spicy;
+        private TextView number;
+        private TextView name;
+        private ImageView addbtn;
+        private ImageView reducebtn;
         private int num = 0;
         public ViewHolder(View view){
             super(view);
@@ -71,13 +71,13 @@ public class MealRecommendAdapter extends RecyclerView.Adapter<MealRecommendAdap
             name.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(mcontext,RecipeActivity.class);
-                    mcontext.startActivity(intent);
+                    Intent intent = new Intent(v.getContext(),RecipeActivity.class);
+                    v.getContext().startActivity(intent);
                 }
             });
         }
 
-        public void setData(Meal food) {
+        public void setData(Meal meal) {
         }
     }
 
