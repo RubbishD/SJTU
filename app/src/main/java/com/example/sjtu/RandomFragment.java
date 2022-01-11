@@ -101,7 +101,8 @@ public class RandomFragment extends Fragment {
         randombutton.setOnClickListener(new  View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                String param = "username=root&message=123";
+                String param = "price="+priceCon[0]+"&location="+placeCon[0]+
+                "&staple="+stfoodCon[0]+"&spicy="+spiceCon[0];
 
                 class RanRunable implements Runnable {
                     String param;
@@ -113,7 +114,7 @@ public class RandomFragment extends Fragment {
                     @Override
                     public void run() {
                         HttpRequest request = new HttpRequest();
-                        String url0 = "http://119.3.110.15:33"; // http://119.3.110.15:33
+                        String url0 = "http://119.3.110.15:33/random"; // http://119.3.110.15:33
                         // param = "username=root&message=123"; // param string of get request
                         result[0] = request.get((url0+"/?"+param));
                         JSONArray arr = null;
