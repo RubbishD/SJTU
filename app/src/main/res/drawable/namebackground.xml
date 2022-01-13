@@ -13,7 +13,7 @@
         android:angle="45"
         android:centerX="30"
         android:centerY="30"
-        android:centerColor="@color/colorAccent"
+        android:centerColor="@color/primary"
         android:endColor="@color/colorPrimary"
         android:startColor="@color/colorPrimaryDark"
         android:gradientRadius="20"
@@ -24,9 +24,6 @@
         android:top="10dp"
         android:right="10dp"
         android:bottom="10dp" />
-    <stroke
-        android:width="7dp"
-        android:color="@color/colorAccent"
-        android:dashWidth="3dp" />
+
 
 </shape>

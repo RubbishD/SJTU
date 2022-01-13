@@ -24,16 +24,18 @@
         <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_item.xml" value="0.1421875" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_lay_out.xml" value="0.12760416666666666" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_layout.xml" value="0.264" />
-        <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_sub_item.xml" value="0.264" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_sub_item.xml" value="0.2800925925925926" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/food_comment.xml" value="0.2" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_main.xml" value="0.264" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_meal_recommend.xml" value="0.2328125" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_plan.xml" value="0.152" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_random.xml" value="0.1" />
-        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_recommend.xml" value="0.4" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_recipe.xml" value="0.2328125" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_recommend.xml" value="0.2" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_start.xml" value="0.27395833333333336" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_upload.xml" value="0.27395833333333336" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/layout.xml" value="0.12864583333333332" />
-        <entry key="..\:/github/SJTU/app/src/main/res/layout/meal_list.xml" value="0.264" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/meal_list.xml" value="0.2" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/shopping_cart.xml" value="0.39100346020761245" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/shopping_message.xml" value="0.264" />
         <entry key="..\:/github/SJTU/app/src/main/res/layout/test.xml" value="0.4244791666666667" />
