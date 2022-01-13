@@ -46,19 +46,4 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
-    <com.laocaixw.layout.SuspendButtonLayout
-        android:id="@+id/suspend_button"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        app:distance="80dp"
-        app:imageMainClose="@mipmap/icon4"
-        app:imageMainOpen="@mipmap/icon4"
-        app:imageSize="50dp"
-        app:marginY="100dp"
-        app:number="3"
-
-        >
-
-    </com.laocaixw.layout.SuspendButtonLayout>
-
 </RelativeLayout>

@@ -94,6 +94,8 @@ public class MealOrderFragment extends Fragment {
     }
 
     private void init(){
+        ((TextView)getView().findViewById(R.id.restaurant_name)).setText(restaurantName);
+
         recyclerView = (RecyclerView)getView().findViewById(R.id.meal_recyclerView);
         initData();
         adapter = new MealOrderAdapter(data);

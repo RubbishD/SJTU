@@ -1,6 +1,7 @@
 package com.example.sjtu;
 
 
+import android.content.DialogInterface;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,6 +15,7 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
+import androidx.appcompat.app.AlertDialog;
 import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
@@ -81,9 +83,42 @@ public class ShopFragment extends Fragment {
 
     }
 
+    private void showNormalDialog(double calory){
+        /* @setIcon 设置对话框图标
+         * @setTitle 设置对话框标题
+         * @setMessage 设置对话框消息提示
+         * setXXX方法返回Dialog对象，因此可以链式设置属性
+         */
+        final AlertDialog.Builder normalDialog =
+                new AlertDialog.Builder(getActivity());
 
+        normalDialog.setTitle("卡路里结果");
+        normalDialog.setMessage("燃烧你的卡路里!!!\n"+"卡路里 : "+calory);
+        normalDialog.setPositiveButton("确定",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //...To-do
+                    }
+                });
+        normalDialog.setNegativeButton("关闭",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        //...To-do
+                    }
+                });
+        // 显示
+        normalDialog.show();
+    }
 
     private void bindClick(){
+        getView().findViewById(R.id.calory).setOnClickListener(v->{
+            double calory = c.calory();
+            showNormalDialog(calory);
+
+        });
+
         getView().findViewById(R.id.clear).setOnClickListener(
                 v -> {adapter.setEmpty();
                     Toast.makeText(getContext(),"clear",Toast.LENGTH_SHORT).show();

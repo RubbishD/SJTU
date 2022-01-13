@@ -85,47 +85,9 @@ public class MainFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-
-
-
-        SuspendButtonLayout suspendButtonLayout = (SuspendButtonLayout) view.findViewById(R.id.suspend_button);
         bottomNav = getActivity().findViewById(R.id.bottom_navigation);
         controller = Navigation.findNavController(getActivity(),R.id.main_fragment_nav_host_fragment);
         NavigationUI.setupWithNavController(bottomNav,controller);
-
-        suspendButtonLayout.setOnSuspendListener(new SuspendButtonLayout.OnSuspendListener() {
-            @Override
-            public void onButtonStatusChanged(int status) {
-                // 监听按钮状态：展开、关闭、移动等
-
-            }
-
-            @Override
-            public void onChildButtonClick(int index) {
-                // 监听子按钮的点击事件
-                switch (index) {
-                    case  1 : play();break;
-                    case  2 :hideShop();break;
-                    case  3 : showShop();break;
-                    default:break;
-                }
-                }
-            }
-        );
-
-
-//
-//        suspendButtonLayout.hideSuspendButton(); // 隐藏按钮
-//        suspendButtonLayout.showSuspendButton(); // 显示按钮
-//
-//        suspendButtonLayout.openSuspendButton(); // 展开按钮
-//        suspendButtonLayout.closeSuspendButton(); // 关闭按钮
-//
-//        suspendButtonLayout.setMainCloseImageResource(R.mipmap.suspend_main_close); // 设置关闭时，主按钮的图片
-//        suspendButtonLayout.setMainOpenImageResource(R.mipmap.suspend_main_open); // 设置展开时，主按钮的图片
-//
-//        suspendButtonLayout.setPosition(isRight, stayPosY); // 设置按钮位置。isRight：true在右边，false在左边；stayPosY：在'按钮停留区域'从上往下，值为从0到100。
-
 
     }
 
