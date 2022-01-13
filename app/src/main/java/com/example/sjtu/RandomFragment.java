@@ -144,7 +144,7 @@ public class RandomFragment extends Fragment {
         webRes1.loadUrl(defaultUrl);
         webRes2.loadUrl(defaultUrl);
         webRes3.loadUrl(defaultUrl);
-        String[] resultWeb = {"ggg"}; //start thread
+        String[] resultWeb = {"ggg"}; //start thread asd
 
         webRes1.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View v, MotionEvent event) {
