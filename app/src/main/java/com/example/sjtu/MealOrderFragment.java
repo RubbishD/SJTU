@@ -11,6 +11,13 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.webkit.WebSettings;
+import android.webkit.WebView;
+import android.widget.ImageButton;
+import android.widget.ImageView;
+import android.widget.TextView;
+
+import org.jetbrains.annotations.NotNull;
 
 import java.util.ArrayList;
 
@@ -26,11 +33,17 @@ public class MealOrderFragment extends Fragment {
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
 
+    public Cache c ;
+
     private RecyclerView recyclerView;
-    private RecyclerView.Adapter adapter;
+    private MealOrderAdapter adapter;
     private RecyclerView.LayoutManager layout;
     private static final String ARG_PREFIX= "param1";
-    private ArrayList<String> name=new ArrayList<String>();
+    private ArrayList<Food> data=new ArrayList<>();
+
+    public String restaurantName;
+    public String merchantName;
+    public int building;
 
     public MealOrderFragment() {
         // Required empty public constructor
@@ -58,7 +71,10 @@ public class MealOrderFragment extends Fragment {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         if (getArguments() != null) {
-
+            ArrayList<String> tmp= getArguments().getStringArrayList("INDEX");
+            building=Integer.parseInt(tmp.get(0));
+            restaurantName = tmp.get(1);
+            merchantName = tmp.get(2);
         }
     }
 
@@ -66,6 +82,7 @@ public class MealOrderFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
         // Inflate the layout for this fragment
+        c = ((MainActivity)getActivity()).cache;
         return inflater.inflate(R.layout.fragment_meal_order, container, false);
     }
 
@@ -78,21 +95,119 @@ public class MealOrderFragment extends Fragment {
 
     private void init(){
         recyclerView = (RecyclerView)getView().findViewById(R.id.meal_recyclerView);
-        getData();
-        adapter = new MealOrderAdapter(name);
-
-
+        initData();
+        adapter = new MealOrderAdapter(data);
         layout = new LinearLayoutManager(getActivity(),LinearLayoutManager.VERTICAL,false);
 
         recyclerView.setLayoutManager(layout);
         recyclerView.setAdapter(adapter);
     }
-    public void getData(){
-
-        name.clear();
-        for (int i = 0; i < 20; i++) {
-            name.add(i + "name");
+    public void initData() {
+        Restaurant r = ((MainActivity) getActivity()).getCache().data.get(building).getRestaurants(restaurantName);
+        if (r.f) {
+            Merchant m = r.getFoods(merchantName);
+            data = m.foods;
         }
     }
 
+
+
+
+
+
+
+class MealOrderAdapter extends RecyclerView.Adapter<MealOrderAdapter.ViewHolder> {
+    public ArrayList<Food> nameDataSet;
+    public class ViewHolder extends RecyclerView.ViewHolder {
+
+        public final TextView mealName;
+        public TextView mealBrief;
+        public TextView orderNum;
+        WebView img;
+        private ImageView addBtn;
+        private ImageView delBtn;
+        TextView price;
+        public ViewHolder(View view) {
+            super(view);
+            // Define click listener for the ViewHolder's View
+
+            mealName = view.findViewById(R.id.meal_name);
+            mealBrief = view.findViewById(R.id.meal_description);
+            orderNum = view.findViewById(R.id.order_num);
+            addBtn = view.findViewById(R.id.addBtn);
+            delBtn = view.findViewById(R.id.delBtn);
+            price = view.findViewById(R.id.price);
+            img = view.findViewById(R.id.imageB);
+            WebSettings webSettings = img.getSettings();
+            webSettings.setLoadWithOverviewMode(true);
+            webSettings.setUseWideViewPort(true);// viewport
+            webSettings.setBuiltInZoomControls(true);
+            webSettings.setDisplayZoomControls(false);
+            webSettings.setSupportZoom(true);
+
+        }
+
+
+
+
+    }
+
+    public MealOrderAdapter(ArrayList<Food> dataSet) {
+        nameDataSet = dataSet;
+    }
+
+    // Create new views (invoked by the layout manager)
+    @NotNull
+    @Override
+    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
+        // Create a new view, which defines the UI of the list item
+        View view = LayoutInflater.from(viewGroup.getContext())
+                .inflate(R.layout.meal_viewholder, viewGroup, false);
+
+        return new ViewHolder(view);
+    }
+
+    // Replace the contents of a view (invoked by the layout manager)
+    @Override
+    public void onBindViewHolder(ViewHolder viewHolder, final int position) {
+
+        // Get element from your dataset at this position and replace the
+        // contents of the view with that element
+        viewHolder.mealName.setText(nameDataSet.get(position).name);
+        viewHolder.img.loadUrl(nameDataSet.get(position).url);
+        viewHolder.orderNum.setText(""+nameDataSet.get(position).orderNum);
+        viewHolder.price.setText(""+nameDataSet.get(position).price);
+
+        viewHolder.addBtn.setOnClickListener(v -> {
+            if(nameDataSet.get(position).orderNum==0){
+                c.ordered.add(data.get(position));
+                    }
+            nameDataSet.get(position).orderNum++;
+            viewHolder.orderNum.setText(""+adapter.nameDataSet.get(position).orderNum);
+
+        }
+        );
+        viewHolder.delBtn.setOnClickListener(v -> {
+
+            if (nameDataSet.get(position).orderNum>0){
+                nameDataSet.get(position).orderNum--;
+
+                viewHolder.orderNum.setText( ""+adapter.nameDataSet.get(position).orderNum);
+                if(nameDataSet.get(position).orderNum==0){
+                    c.removeOrdered(nameDataSet.get(position));
+                }
+            }
+        });
+    }
+
+    // Return the size of your dataset (invoked by the layout manager)
+    @Override
+    public int getItemCount() {
+
+        return nameDataSet.size();
+    }
+
+
+
+}
 }

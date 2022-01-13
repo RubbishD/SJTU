@@ -18,6 +18,12 @@ import android.widget.Toast;
 
 import com.google.android.material.navigation.NavigationView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.ArrayList;
+
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link ClassificationFragment#newInstance} factory method to
@@ -71,8 +77,18 @@ public class ClassificationFragment extends Fragment {
         restaurantScrollingFragment = (RestaurantScrollingFragment) getChildFragmentManager().findFragmentById(R.id.restaurantScrollingFragment);
         restaurantScrollingFragment.setOnItemClickListener(new RestaurantAdapter.OnItemClickListener() {
             @Override
-            public void onItemClick() {
-               Navigation.findNavController(getParentFragment().getView()).navigate(R.id.action_classificationFragment_to_mealOrderFragment);
+            public void onItemClick(int i) {
+                RestaurantView a =  restaurantScrollingFragment.viewData.get(i);
+                ArrayList<String>_toAdd = new ArrayList<String>();
+                _toAdd.add(""+a.building);
+                _toAdd.add(a.restaurantName);
+                _toAdd.add(a.merChantName);
+
+
+
+               Bundle args = new Bundle();
+               args.putStringArrayList("INDEX",_toAdd);
+               Navigation.findNavController(getParentFragment().getView()).navigate(R.id.action_classificationFragment_to_mealOrderFragment,args);
             }
         });
 
@@ -83,29 +99,30 @@ public class ClassificationFragment extends Fragment {
                 Toast.makeText(getContext(),restaurantScrollingFragment.prefix,Toast.LENGTH_SHORT).show();
                 switch (item.getItemId()) {
                     case R.id._1stBuilding:
-                        restaurantScrollingFragment.setArgPrefix("_1stBuilding");
+                        restaurantScrollingFragment.updateData(1);
                         break;
 
                     case R.id._2ndBuilding:
-                        restaurantScrollingFragment.setArgPrefix("_2ndBuilding");
+                        restaurantScrollingFragment.updateData(2);
                         break;
+
                     case R.id._3rdBuilding:
-                        restaurantScrollingFragment.setArgPrefix("_13rdBuilding");
+                        restaurantScrollingFragment.updateData(3);
                         break;
                     case R.id._4thBuilding:
-                        restaurantScrollingFragment.setArgPrefix("_4thBuilding");
+                        restaurantScrollingFragment.updateData(5);
                         break;
                     case R.id._5thBuilding:
-                        restaurantScrollingFragment.setArgPrefix("_5thBuilding");
+
                         break;
                     case R.id._6thBuilding:
-                        restaurantScrollingFragment.setArgPrefix("_6thBuilding");
+
                         break;
                     case R.id._7thBuilding:
-                        restaurantScrollingFragment.setArgPrefix("_7thBuilding");
+
                         break;
                     case R.id._yulanBuilding:
-                        restaurantScrollingFragment.setArgPrefix("_yuLanBuilding");
+
                 }
 
                 return true;

@@ -15,8 +15,7 @@
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/divider3"
-        app:layout_constraintVertical_bias="0.472"
-        tools:src="@tools:sample/avatars" />
+        app:layout_constraintVertical_bias="0.472" />
 
     <TextView
         android:id="@+id/restaurant_name"

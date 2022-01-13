@@ -19,5 +19,17 @@
         android:id="@+id/mainFragment"
         android:name="com.example.sjtu.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.example.sjtu.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/shopping_cart"
+        >
+    </fragment>
+
 </navigation>

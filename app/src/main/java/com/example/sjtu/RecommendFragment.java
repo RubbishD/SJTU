@@ -16,7 +16,6 @@ import android.widget.Adapter;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.diegodobelo.expandingview.ExpandingList;
 import com.ramotion.foldingcell.FoldingCell;
 
 /**

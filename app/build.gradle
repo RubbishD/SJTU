@@ -89,4 +89,6 @@ dependencies {
 //    implementation "androidx.room:room-paging:2.4.0-beta01"
     //
     implementation 'com.laocaixw.suspendbuttonlayout:suspendbuttonlayout:1.0.3'
+
+    implementation 'com.ramotion.foldingcell:folding-cell:1.2.3'
 }
