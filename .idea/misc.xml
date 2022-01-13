@@ -3,16 +3,36 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/seproject/SJTU/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2125" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/drawable/chat_drawable.xml" value="0.15104166666666666" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2125" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/drawable/textview_border.xml" value="0.18489583333333334" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/activity_main.xml" value="0.264" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/expanding_item.xml" value="0.12760416666666666" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/expanding_layout.xml" value="0.264" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/expanding_sub_item.xml" value="0.264" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/food_comment.xml" value="0.2" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_classification.xml" value="0.17844202898550723" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_main.xml" value="0.2" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_meal_order.xml" value="0.2" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_plan.xml" value="0.1793478260869565" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_random.xml" value="0.264" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_recommend.xml" value="0.1793478260869565" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_restraurant_scrolling.xml" value="0.2" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_start.xml" value="0.264" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_upload.xml" value="0.17844202898550723" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/meal_viewholder.xml" value="0.17844202898550723" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/restaurant_viewholder.xml" value="0.17844202898550723" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/shop_empty_viewholder.xml" value="0.12760416666666666" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/shopping_cart.xml" value="0.12760416666666666" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/menu/bottom_nav.xml" value="0.19635416666666666" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/menu/plan_building.xml" value="0.19635416666666666" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/xml/network_security_config.xml" value="0.15885416666666666" />
       </map>
     </option>
   </component>
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_1_8" default="false" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ExternalStorageConfigurationManager" enabled="true" />
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
