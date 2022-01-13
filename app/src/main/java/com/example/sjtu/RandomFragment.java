@@ -1,5 +1,6 @@
 package com.example.sjtu;
 
+import android.content.Intent;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.graphics.Color;
@@ -13,6 +14,7 @@ import android.text.Html;
 import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
@@ -100,7 +102,9 @@ public class RandomFragment extends Fragment {
         TextView randomres = getActivity().findViewById(R.id.textViewRan);
         randomres.setMovementMethod(ScrollingMovementMethod.getInstance());//scroll
         //ImageView imageRes = getActivity().findViewById(R.id.imageView1);
-        WebView webRes = getActivity().findViewById(R.id.webView1);
+        WebView webRes1 = getActivity().findViewById(R.id.webView1);
+        WebView webRes2 = getActivity().findViewById(R.id.webView2);
+        WebView webRes3 = getActivity().findViewById(R.id.webView3);
         //for storing spinners' selection results
         Spinner priceLow = getActivity().findViewById(R.id.spinner1);
         Spinner priceHigh = getActivity().findViewById(R.id.spinner5);
@@ -117,14 +121,63 @@ public class RandomFragment extends Fragment {
         //int[] imageLs = {R.drawable.azura, R.drawable.mc, R.drawable.bdffknight, R.drawable.chocobo,
                // R.drawable.creeper, R.drawable.edea, R.drawable.cc};
 
-        WebSettings webSettings = webRes.getSettings();
-        webSettings.setLoadWithOverviewMode(true);
-        webSettings.setUseWideViewPort(true);// viewport
-        webSettings.setBuiltInZoomControls(true);
-        webSettings.setDisplayZoomControls(false);
-        webSettings.setSupportZoom(true);
+        WebSettings webSettings1 = webRes1.getSettings();
+        webSettings1.setLoadWithOverviewMode(true);
+        webSettings1.setUseWideViewPort(true);// viewport
+        webSettings1.setBuiltInZoomControls(true);
+        webSettings1.setDisplayZoomControls(false);
+        webSettings1.setSupportZoom(true);
+        WebSettings webSettings2 = webRes2.getSettings();
+        webSettings2.setLoadWithOverviewMode(true);
+        webSettings2.setUseWideViewPort(true);// viewport
+        webSettings2.setBuiltInZoomControls(true);
+        webSettings2.setDisplayZoomControls(false);
+        webSettings2.setSupportZoom(true);
+        WebSettings webSettings3 = webRes3.getSettings();
+        webSettings3.setLoadWithOverviewMode(true);
+        webSettings3.setUseWideViewPort(true);// viewport
+        webSettings3.setBuiltInZoomControls(true);
+        webSettings3.setDisplayZoomControls(false);
+        webSettings3.setSupportZoom(true);
 
-        webRes.loadUrl("http://guangyuanol.cn/uploads/allimg/210119/2105231502-1.jpg");
+        String defaultUrl = "http://bpic.588ku.com/element_pic/19/04/09/87e4892d62ea31543cdd8360d5d5bb33.jpg";
+        webRes1.loadUrl(defaultUrl);
+        webRes2.loadUrl(defaultUrl);
+        webRes3.loadUrl(defaultUrl);
+
+        webRes1.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_MOVE){
+                    return false;
+                }
+                if (event.getAction()==MotionEvent.ACTION_UP){
+                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend);
+                }
+                return false;
+            }
+        });
+        webRes2.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_MOVE){
+                    return false;
+                }
+                if (event.getAction()==MotionEvent.ACTION_UP){
+                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend);
+                }
+                return false;
+            }
+        });
+        webRes3.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_MOVE){
+                    return false;
+                }
+                if (event.getAction()==MotionEvent.ACTION_UP){
+                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend);
+                }
+                return false;
+            }
+        });
 
         randombutton.setOnClickListener(new  View.OnClickListener() {
 
@@ -159,7 +212,9 @@ public class RandomFragment extends Fragment {
                     e.printStackTrace();
                 }
 
-                String imageUrl = "";
+                String imageUrl1 = "";
+                String imageUrl2 = "";
+                String imageUrl3 = "";
                 //text colors: Turquoise1 #00F5FF; Chartreuse2 #76EE00; DarkOrange #FF8C00; Firebrick2 #EE2C2C
                 //RoyalBlue2 #436EEE; ForestGreen #228B22;
                 try {
@@ -167,12 +222,19 @@ public class RandomFragment extends Fragment {
                     if (arr.length() == 0) {
                         String text0 = "<font color='#EE2C2C'>抱歉,未找到相应结果</font>";
                         randomres.setText(Html.fromHtml(text0));
+                        webRes1.loadUrl(defaultUrl);
+                        webRes2.loadUrl(defaultUrl);
+                        webRes3.loadUrl(defaultUrl);
                     }
                     else if (arr.length() == 1) {
                         JSONObject obj = arr.getJSONObject(0);
                         String text1 = "为您推荐的菜品: <font color='#436EEE'>"+ obj.get("food")+ "</font>\n价格: <font color='#EE2C2C'>"
                                 + obj.get("price") + "</font>\n所在餐厅: " + obj.get("restaurant") + "\n窗口: " + obj.get("merchant");
                         randomres.setText(Html.fromHtml(text1));
+                        imageUrl1 = obj.get("img_url").toString();
+                        webRes1.loadUrl(imageUrl1);
+                        webRes2.loadUrl(defaultUrl);
+                        webRes3.loadUrl(defaultUrl);
                     }
                     else if (arr.length() == 2) {
                         JSONObject obj = arr.getJSONObject(0);
@@ -183,6 +245,11 @@ public class RandomFragment extends Fragment {
                                 + obj2.get("price") + "</font> = <font color='#EE2C2C'>" + total + "</font>\n所在餐厅: " + obj.get("restaurant")
                                 + "\n窗口:" + obj.get("merchant") + ", " + obj2.get("merchant");
                         randomres.setText(Html.fromHtml(text2));
+                        imageUrl1 = obj.get("img_url").toString();
+                        webRes1.loadUrl(imageUrl1);
+                        imageUrl2 = obj2.get("img_url").toString();
+                        webRes2.loadUrl(imageUrl2);
+                        webRes3.loadUrl(defaultUrl);
                     }
                     else {
                         JSONObject obj = arr.getJSONObject(0);
@@ -196,12 +263,13 @@ public class RandomFragment extends Fragment {
                                 + "</font> = <font color='#EE2C2C'>" + total + "</font>\n所在餐厅: " + obj.get("restaurant") + "\n窗口:"
                                 + obj.get("merchant") + ", " + obj2.get("merchant")+ ", " + obj3.get("merchant");
                         randomres.setText(Html.fromHtml(text3));
+                        imageUrl1 = obj.get("img_url").toString();
+                        webRes1.loadUrl(imageUrl1);
+                        imageUrl2 = obj2.get("img_url").toString();
+                        webRes2.loadUrl(imageUrl2);
+                        imageUrl3 = obj3.get("img_url").toString();
+                        webRes3.loadUrl(imageUrl3);
                     }
-
-                    //randomres.setTextColor(Color.parseColor("#FFFAAA"));
-                    JSONObject obj = arr.getJSONObject(0);
-                    imageUrl = obj.get("img_url").toString();
-                    webRes.loadUrl(imageUrl);
 
                 } catch (JSONException e) {
                     e.printStackTrace();

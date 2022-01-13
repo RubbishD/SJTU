@@ -19,5 +19,14 @@
         android:id="@+id/mainFragment"
         android:name="com.example.sjtu.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_fragment_recommend"
+            app:destination="@id/fragment_recommend" />
+    </fragment>
+    <fragment
+        android:id="@+id/fragment_recommend"
+        android:name="com.example.sjtu.RecommendFragment"
+        android:label="fragmentRecommend"
+        tools:layout="@layout/fragment_recommend"></fragment>
 </navigation>
