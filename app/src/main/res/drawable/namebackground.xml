@@ -13,7 +13,7 @@
         android:angle="45"
         android:centerX="30"
         android:centerY="30"
-        android:centerColor="#594691"
+        android:centerColor="@color/primary"
         android:endColor="@color/colorPrimary"
         android:startColor="@color/colorPrimaryDark"
         android:gradientRadius="20"

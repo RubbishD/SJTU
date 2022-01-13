@@ -7,8 +7,6 @@
     <color name="teal_700">#FF018786</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
-    <color name="colorPrimary">#594691</color>
-    <color name="colorPrimaryDark">#3e2d70</color>
     <color name="bgBackSideColor">#f4f0ff</color>
     <color name="bgTitleLeft">#594691</color>
     <color name="bgTitleRight">#ffffff</color>
@@ -25,5 +23,18 @@
     <color name="Khaki">#F0E68C</color>
     <color name="linen">#FAF0E6</color>
     <color name="dimgray">#696969</color>
-
+    <color name="purple_400">#FF594691</color>
+    <color name="gray">#FFadafb1</color>
+    <color name="white_gray">#a9a9a9</color>
+    <color name="gray_to_black">#FF343d43</color>
+    <color name="colorAccent">#F08470FF</color>
+    <color name="colorPrimary">#F07B68EE</color>
+    <color name="colorPrimaryDark">#F06A5ACD</color>
+    <color name="primary">#409EFF</color>
+    <color name="success">#67C23A</color>
+    <color name="warning">#e6a23c</color>
+    <color name="danger">#f56c6c</color>
+    <color name="info">#909399</color>
+    <color name="red">#FF0000</color>
 </resources>
+
