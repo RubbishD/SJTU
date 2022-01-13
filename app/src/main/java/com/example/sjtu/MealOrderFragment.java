@@ -9,6 +9,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.webkit.WebSettings;
@@ -18,6 +19,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import org.jetbrains.annotations.NotNull;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -200,6 +204,7 @@ class MealOrderAdapter extends RecyclerView.Adapter<MealOrderAdapter.ViewHolder>
                 }
             }
         });
+
     }
 
     // Return the size of your dataset (invoked by the layout manager)

@@ -313,12 +313,13 @@
             android:layout_marginBottom="5dp"
             android:layout_toStartOf="@+id/comment_submit_btn"
             android:background="@drawable/comment_input_box"
+            android:maxLines="3"
             android:ems="10"
             android:gravity="center_vertical"
             android:hint="你的评价"
-            android:textColorHint="@color/white_gray"
             android:imeOptions="actionSearch"
             android:padding="8dp"
+            android:textColorHint="@color/white_gray"
             android:textSize="18sp">
 
             <requestFocus />
@@ -340,15 +341,15 @@
             android:textSize="17sp" />
     </RelativeLayout>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/food_comment_view"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:paddingTop="7dp"
-        android:paddingRight="12dp"
-        android:paddingLeft="12dp"
-        android:paddingBottom="7dp"/>
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/food_comment_view"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="10dp"
+            android:paddingLeft="12dp"
+            android:paddingTop="7dp"
+            android:paddingRight="12dp"
+            android:paddingBottom="7dp" />
 
 
     </LinearLayout>

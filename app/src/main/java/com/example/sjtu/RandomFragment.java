@@ -144,7 +144,7 @@ public class RandomFragment extends Fragment {
         webRes1.loadUrl(defaultUrl);
         webRes2.loadUrl(defaultUrl);
         webRes3.loadUrl(defaultUrl);
-        String[] resultWeb = {"asdsdds"}; //start thread
+        String[] resultWeb = {"ggg"}; //start thread asd
 
         webRes1.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View v, MotionEvent event) {
@@ -152,9 +152,15 @@ public class RandomFragment extends Fragment {
                     return false;
                 }
                 if (event.getAction()==MotionEvent.ACTION_UP){
-                    Bundle args = new Bundle();
-                    args.putString("WEB",resultWeb[0]);
-                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend,args);
+                    try {
+                        JSONArray arrt = new JSONArray(resultWeb[0]);
+                        JSONObject obj1 = arrt.getJSONObject(0);
+                        Bundle args = new Bundle();
+                        args.putString("food", obj1.toString());
+                        ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_expanding_item,args);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
                 return false;
             }
@@ -165,7 +171,15 @@ public class RandomFragment extends Fragment {
                     return false;
                 }
                 if (event.getAction()==MotionEvent.ACTION_UP){
-                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend);
+                    try {
+                        JSONArray arrt = new JSONArray(resultWeb[0]);
+                        JSONObject obj2 = arrt.getJSONObject(1);
+                        Bundle args = new Bundle();
+                        args.putString("food", obj2.toString());
+                        ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_expanding_item,args);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
                 return false;
             }
@@ -176,7 +190,15 @@ public class RandomFragment extends Fragment {
                     return false;
                 }
                 if (event.getAction()==MotionEvent.ACTION_UP){
-                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend);
+                    try {
+                        JSONArray arrt = new JSONArray(resultWeb[0]);
+                        JSONObject obj3 = arrt.getJSONObject(2);
+                        Bundle args = new Bundle();
+                        args.putString("food", obj3.toString());
+                        ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_expanding_item,args);
+                    } catch (JSONException e) {
+                        e.printStackTrace();
+                    }
                 }
                 return false;
             }
@@ -214,6 +236,7 @@ public class RandomFragment extends Fragment {
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
+                resultWeb[0] = resultOut[0];
 
                 String imageUrl1 = "";
                 String imageUrl2 = "";

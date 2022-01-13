@@ -18,6 +18,10 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
 import java.io.Serializable;
 
 /**
@@ -48,6 +52,7 @@ public class RecipeFragment extends Fragment {
     private EditText et_comment;
     private Button btn_commit;
     private RecyclerView comment_view;
+    private JSONObject object;
 
 
     // TODO: Rename and change types of parameters
@@ -82,10 +87,13 @@ public class RecipeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            food = (Foodmsg) getArguments().getSerializable("INDEX");
-            String hh = getArguments().getString("String");
-            System.out.println(hh+"test0000000000000000000");
-
+            String data =getArguments().getString("food");
+            try {
+                //to debug
+                object = new JSONObject(data);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -124,30 +132,34 @@ public class RecipeFragment extends Fragment {
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
         webSettings.setSupportZoom(true);
-        img.loadUrl(food.getImg_url());
-        tv_name.setText(food.getName());
-        tv_location.setText(food.getBuilding()+food.getFloor()+food.getRestaurant());
-        tv_merchant.setText(food.getMerchant());
-        tv_price.setText(food.getPrice());
-        if(food.getMorning_time().equals("1")){
-            tv_morning.setText("早餐供应");}
-        else {
-            tv_morning.setText("无早餐供应");
+
+        try {
+            img.loadUrl(object.get("img_url").toString());
+            tv_name.setText(object.get("food").toString());
+            tv_location.setText(object.get("building").toString()+object.get("floor").toString()+object.get("restaurant").toString());
+            tv_merchant.setText(object.get("merchant").toString());
+            tv_price.setText("￥"+object.get("price").toString());
+            if(object.get("morning").toString().equals("1")){
+                tv_morning.setText("早餐供应");}
+            else {
+                tv_morning.setText("无早餐供应");
+            }
+            if(object.get("noon").toString().equals("1")){
+                tv_noon.setText("午餐供应");}
+            else {
+                tv_noon.setText("无午餐供应");
+            }
+            if (object.get("night").toString().equals("1")){
+                tv_night.setText("晚餐供应");}
+            else {
+                tv_night.setText("无晚餐供应");
+            }
+            tv_raw.setText(object.get("raw").toString());
+            tv_calorie.setText(object.get("calorie").toString());
+            tv_spicy.setText(object.get("spicy").toString());
+            tv_staple.setText(object.get("staple").toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
         }
-        if(food.getNoon_time().equals("1")){
-            tv_noon.setText("午餐供应");}
-        else {
-            tv_noon.setText("无午餐供应");
-        }
-        if (food.getNight_time().equals("1")){
-            tv_night.setText("晚餐供应");}
-        else {
-            tv_night.setText("无晚餐供应");
-        }
-        tv_raw.setText(food.getRaw_material());
-        tv_calorie.setText(food.getCalorie());
-        tv_spicy.setText(food.getSpicy());
-        tv_veg.setText(food.getVegetat());
-        tv_staple.setText(food.getStaple());
     }
 }

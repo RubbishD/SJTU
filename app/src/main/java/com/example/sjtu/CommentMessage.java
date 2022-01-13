@@ -1,7 +1,7 @@
 package com.example.sjtu;
 
 public class CommentMessage {
-    private long time;
+    private static long time;
     private String comment;
 
     public CommentMessage(String comment,long time){
@@ -10,7 +10,7 @@ public class CommentMessage {
     }
 
 
-    public long getTime() {
+    public static long getTime() {
         return time;
     }
 
