@@ -1,50 +1,55 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout  xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
-    android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:layout_width="match_parent"
+    tools:context=".MainActivity">
+    <LinearLayout
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
     android:orientation="vertical">
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
         android:background="@drawable/namebackground">
+
         <TextView
             android:id="@+id/food_name"
             android:layout_width="match_parent"
             android:layout_height="80dp"
-            android:background="@drawable/namebackground"
-            android:paddingBottom="10dp"
-            android:text="菜名"
+
             android:fontFamily="@font/qinchuanfeiying"
             android:gravity="center"
+            android:paddingBottom="10dp"
+            android:text="菜名"
             android:textSize="40sp" />
+
         <RelativeLayout
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_below="@id/food_name">
+            tools:ignore="WebViewLayout">
 
-            <ImageView
+            <WebView
                 android:id="@+id/food_img"
-                android:layout_width="100dp"
-                android:layout_height="100dp"
+                android:layout_width="200dp"
+                android:layout_height="wrap_content"
                 android:layout_centerVertical="true"
                 android:src="@mipmap/icon2" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="120dp"
-                android:layout_toRightOf="@id/food_img"
+                android:layout_toEndOf="@id/food_img"
                 android:orientation="vertical"
-                android:background="@drawable/namebackground"
+
                 >
 
                 <TextView
-                    android:id="@+id/location"
+                    android:id="@+id/food_location"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_centerVertical="true"
                     android:layout_marginTop="5dp"
                     android:gravity="center"
                     android:text="第二餐饮大楼一楼西餐厅"
@@ -54,7 +59,7 @@
 
 
                 <TextView
-                    android:id="@+id/merchant"
+                    android:id="@+id/food_merchant"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -66,7 +71,7 @@
                     android:paddingBottom="3dp"
                     />
                 <TextView
-                    android:id="@+id/single_price"
+                    android:id="@+id/food_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:gravity="center"
@@ -98,11 +103,10 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
                 android:text="供应时间" />
 
             <TextView
-                android:id="@+id/single_time1"
+                android:id="@+id/moring"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_below="@id/single_time"
@@ -112,21 +116,21 @@
                 android:textSize="18sp"
                 android:textStyle="bold" />
             <TextView
-                android:id="@+id/single_time2"
+                android:id="@+id/noon"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_centerInParent="true"
-                android:layout_below="@id/single_time1"
+                android:layout_below="@id/moring"
                 android:text="全天"
                 android:textColor="@color/black"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
             <TextView
-                android:id="@+id/single_time3"
+                android:id="@+id/night"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:layout_below="@id/single_time2"
+                android:layout_below="@id/noon"
                 android:layout_centerInParent="true"
                 android:text="全天"
                 android:textColor="@color/black"
@@ -145,7 +149,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="false"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:text="原料" />
 
@@ -155,10 +158,10 @@
                 android:layout_height="wrap_content"
                 android:layout_below="@id/single_material_title"
                 android:layout_centerInParent="true"
+                android:text="meat"
                 android:textColor="@color/black"
                 android:textSize="20sp"
-                android:textStyle="bold"
-                android:text="meat"/>
+                android:textStyle="bold" />
 
             <RelativeLayout
                 android:layout_width="match_parent"
@@ -172,7 +175,6 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentStart="true"
-                    android:layout_alignParentLeft="true"
                     android:text="卡路里" />
 
                 <TextView
@@ -213,7 +215,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_alignParentStart="true"
-                android:layout_alignParentLeft="true"
                 android:text="辣度" />
 
             <TextView
@@ -239,7 +240,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="false"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:text="荤素" />
 
@@ -266,7 +266,6 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:singleLine="false"
-                android:layout_alignParentLeft="true"
                 android:layout_alignParentStart="true"
                 android:text="主食" />
 
@@ -306,20 +305,21 @@
             android:id="@+id/comment_editText"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_alignParentLeft="true"
+            android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
             android:layout_marginStart="5dp"
             android:layout_marginTop="5dp"
             android:layout_marginEnd="5dp"
             android:layout_marginBottom="5dp"
-            android:layout_toLeftOf="@+id/comment_submit_btn"
+            android:layout_toStartOf="@+id/comment_submit_btn"
             android:background="@drawable/comment_input_box"
             android:ems="10"
             android:gravity="center_vertical"
-            android:hint=""
+            android:hint="你的评价"
+            android:textColorHint="@color/white_gray"
             android:imeOptions="actionSearch"
             android:padding="8dp"
-            android:textSize="17sp">
+            android:textSize="18sp">
 
             <requestFocus />
         </EditText>
@@ -330,18 +330,18 @@
             android:layout_height="40dp"
             android:layout_alignEnd="@id/input_box_layout"
             android:layout_alignBottom="@id/input_box_layout"
-            android:layout_marginLeft="3dp"
-            android:layout_marginRight="5dp"
+            android:layout_marginStart="3dp"
+            android:layout_marginEnd="5dp"
             android:layout_marginBottom="3dp"
             android:background="@drawable/comment_btn_selector"
-            android:enabled="false"
+            android:enabled="true"
             android:gravity="center"
             android:text="提交"
             android:textSize="17sp" />
     </RelativeLayout>
 
     <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/food_comment"
+        android:id="@+id/food_comment_view"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="10dp"
@@ -351,8 +351,6 @@
         android:paddingBottom="7dp"/>
 
 
-
+    </LinearLayout>
 
 </LinearLayout>
-
-

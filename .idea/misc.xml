@@ -3,33 +3,61 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/seproject/SJTU/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.2125" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2125" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/activity_main.xml" value="0.264" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/expanding_layout.xml" value="0.264" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/expanding_sub_item.xml" value="0.4" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_classification.xml" value="0.17844202898550723" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_main.xml" value="0.2" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_meal_order.xml" value="0.2" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_plan.xml" value="0.1793478260869565" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_random.xml" value="0.264" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_recommend.xml" value="0.1793478260869565" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_restraurant_scrolling.xml" value="0.2" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_start.xml" value="0.264" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_upload.xml" value="0.17844202898550723" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/meal_viewholder.xml" value="0.17844202898550723" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/restaurant_viewholder.xml" value="0.17844202898550723" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/menu/bottom_nav.xml" value="0.19635416666666666" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/menu/plan_building.xml" value="0.19635416666666666" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/xml/network_security_config.xml" value="0.15885416666666666" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.1296875" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/btn_enabled_shape.xml" value="0.2675925925925926" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/btn_unabled_shape.xml" value="0.2675925925925926" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/chat_drawable.xml" value="0.152" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/comment_btn_selector.xml" value="0.2675925925925926" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/comment_input_box.xml" value="0.2675925925925926" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/ic_launcher_background.xml" value="0.159375" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/namebackground.xml" value="0.1296875" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/shape_icon.xml" value="0.11666666666666667" />
+        <entry key="..\:/github/SJTU/app/src/main/res/drawable/tv_shape1.xml" value="0.159375" />
+        <entry key="..\:/github/SJTU/app/src/main/res/font/font.xml" value="0.1734375" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/activity_expanding_sub_item.xml" value="0.1421875" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/activity_main.xml" value="0.1" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/activity_recipe.xml" value="0.1421875" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/activity_recipe1.xml" value="0.264" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/cell.xml" value="0.29635416666666664" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/cell_content_layout.xml" value="0.176" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/cell_title_layout.xml" value="0.14722222222222223" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_item.xml" value="0.1421875" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_lay_out.xml" value="0.12760416666666666" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_layout.xml" value="0.264" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/expanding_sub_item.xml" value="0.2800925925925926" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/food_comment.xml" value="0.2" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_main.xml" value="0.264" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_meal_recommend.xml" value="0.2328125" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_plan.xml" value="0.152" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_random.xml" value="0.1" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_recipe.xml" value="0.2328125" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_recommend.xml" value="0.2" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_start.xml" value="0.27395833333333336" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/fragment_upload.xml" value="0.27395833333333336" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/layout.xml" value="0.12864583333333332" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/meal_list.xml" value="0.2" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/shopping_cart.xml" value="0.39100346020761245" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/shopping_message.xml" value="0.264" />
+        <entry key="..\:/github/SJTU/app/src/main/res/layout/test.xml" value="0.4244791666666667" />
+        <entry key="..\:/github/SJTU/app/src/main/res/menu/bottom_nav.xml" value="0.1421875" />
+        <entry key="..\:/github/SJTU/app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.15833333333333333" />
+        <entry key="..\:/github/SJTU/app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.15833333333333333" />
+        <entry key="..\:/github/SJTU/app/src/main/res/mipmap/ic_launcher.xml" value="0.20572916666666666" />
+        <entry key="..\:/github/SJTU/app/src/main/res/mipmap/ic_launcher_round.xml" value="0.20572916666666666" />
       </map>
     </option>
   </component>
-  <component name="ExternalStorageConfigurationManager" enabled="true" />
-  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="11" project-jdk-type="JavaSDK">
+  <component name="ProjectRootManager" version="2" languageLevel="JDK_11" default="true" project-jdk-name="JDK" project-jdk-type="JavaSDK">
     <output url="file://$PROJECT_DIR$/build/classes" />
   </component>
   <component name="ProjectType">
     <option name="id" value="Android" />
+  </component>
+  <component name="VisualizationToolProject">
+    <option name="state">
+      <ProjectState>
+        <option name="scale" value="0.264" />
+      </ProjectState>
+    </option>
   </component>
 </project>

@@ -16,7 +16,7 @@ import org.json.JSONException;
 
 
 public class MainActivity extends AppCompatActivity {
-    private NavController controller;
+    public NavController controller;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

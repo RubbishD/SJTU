@@ -25,4 +25,5 @@
         android:name="com.example.sjtu.UploadFragment"
         android:label="fragment_upload"
         tools:layout="@layout/fragment_upload" />
+
 </navigation>

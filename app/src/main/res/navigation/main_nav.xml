@@ -19,5 +19,16 @@
         android:id="@+id/mainFragment"
         android:name="com.example.sjtu.MainFragment"
         android:label="fragment_main"
-        tools:layout="@layout/fragment_main" />
+        tools:layout="@layout/fragment_main" >
+        <action
+            android:id="@+id/action_mainFragment_to_expanding_item"
+            app:destination="@id/expanding_item" />
+    </fragment>
+    <fragment
+        android:id="@+id/expanding_item"
+        android:name="com.example.sjtu.RecipeFragment"
+        android:label="expanding_item"
+        tools:layout="@layout/expanding_sub_item">
+
+    </fragment>
 </navigation>
