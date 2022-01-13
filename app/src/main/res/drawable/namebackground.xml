@@ -9,13 +9,13 @@
         android:topRightRadius="10dp"
         android:bottomLeftRadius="10dp"
         android:bottomRightRadius="10dp"/>
+
     <gradient
         android:angle="45"
         android:centerX="30"
         android:centerY="30"
-        android:centerColor="@color/primary"
-        android:endColor="@color/colorPrimary"
-        android:startColor="@color/colorPrimaryDark"
+        android:centerColor="@color/LemonChiffon"
+        android:startColor="@color/Khaki"
         android:gradientRadius="20"
         android:type="linear"
         android:useLevel="true" />
@@ -24,6 +24,9 @@
         android:top="10dp"
         android:right="10dp"
         android:bottom="10dp" />
-
+    <size
+        android:width="200dp"
+        android:height="200dp" />
+/>
 
 </shape>

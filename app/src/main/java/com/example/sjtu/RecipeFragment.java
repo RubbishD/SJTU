@@ -15,9 +15,14 @@ import android.webkit.WebSettings;
 import android.webkit.WebView;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.ImageView;
 import android.widget.TextView;
 
-import java.util.ArrayList;
+import org.json.JSONArray;
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.io.Serializable;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -30,7 +35,7 @@ public class RecipeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Foodmsg foodmsg = new Foodmsg();
+    private Foodmsg food = new Foodmsg();
     private TextView tv_name;
     private TextView tv_location;
     private TextView tv_merchant;
@@ -47,10 +52,7 @@ public class RecipeFragment extends Fragment {
     private EditText et_comment;
     private Button btn_commit;
     private RecyclerView comment_view;
-    private CommentMessage commentMessage;
-    private CommentAdapter commentAdapter;
-    private RecyclerView.LayoutManager commentLayout;
-    private ArrayList<CommentMessage> commentdata;
+    private JSONObject object;
 
 
     // TODO: Rename and change types of parameters
@@ -85,10 +87,13 @@ public class RecipeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            foodmsg = (Foodmsg) getArguments().getSerializable("INDEX");
-            String hh = getArguments().getString("String");
-            System.out.println(hh+"test0000000000000000000");
-
+            String data =getArguments().getString("food");
+            try {
+                //to debug
+                object = new JSONObject(data);
+            } catch (JSONException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -127,47 +132,34 @@ public class RecipeFragment extends Fragment {
         webSettings.setBuiltInZoomControls(true);
         webSettings.setDisplayZoomControls(false);
         webSettings.setSupportZoom(true);
-        img.loadUrl(foodmsg.getImg_url());
-        tv_name.setText(foodmsg.getName());
-        tv_location.setText(foodmsg.getBuilding()+ foodmsg.getFloor()+ foodmsg.getRestaurant());
-        tv_merchant.setText(foodmsg.getMerchant());
-        tv_price.setText(foodmsg.getPrice());
-        if(foodmsg.getMorning_time().equals("1")){
-            tv_morning.setText("早餐供应");}
-        else {
-            tv_morning.setText("无早餐供应");
-        }
-        if(foodmsg.getNoon_time().equals("1")){
-            tv_noon.setText("午餐供应");}
-        else {
-            tv_noon.setText("无午餐供应");
-        }
-        if (foodmsg.getNight_time().equals("1")){
-            tv_night.setText("晚餐供应");}
-        else {
-            tv_night.setText("无晚餐供应");
-        }
-        tv_raw.setText(foodmsg.getRaw_material());
-        tv_calorie.setText(foodmsg.getCalorie());
-        tv_spicy.setText(foodmsg.getSpicy());
-        tv_veg.setText(foodmsg.getVegetat());
-        tv_staple.setText(foodmsg.getStaple());
 
-        btn_commit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-                String comment = et_comment.getText().toString();
-                commentMessage = new CommentMessage(comment,System.currentTimeMillis());
-                commentdata.add(commentMessage);
-                commentAdapter.notifyDataSetChanged();
-                et_comment.setText("");//清空内容
-
+        try {
+            img.loadUrl(object.get("img_url").toString());
+            tv_name.setText(object.get("food").toString());
+            tv_location.setText(object.get("building").toString()+object.get("floor").toString()+object.get("restaurant").toString());
+            tv_merchant.setText(object.get("merchant").toString());
+            tv_price.setText("￥"+object.get("price").toString());
+            if(object.get("morning").toString().equals("1")){
+                tv_morning.setText("早餐供应");}
+            else {
+                tv_morning.setText("无早餐供应");
             }
-        });
-        commentAdapter = new CommentAdapter(commentdata);
-        comment_view.setAdapter(commentAdapter);
-        comment_view.setLayoutManager(commentLayout);
-
+            if(object.get("noon").toString().equals("1")){
+                tv_noon.setText("午餐供应");}
+            else {
+                tv_noon.setText("无午餐供应");
+            }
+            if (object.get("night").toString().equals("1")){
+                tv_night.setText("晚餐供应");}
+            else {
+                tv_night.setText("无晚餐供应");
+            }
+            tv_raw.setText(object.get("raw").toString());
+            tv_calorie.setText(object.get("calorie").toString());
+            tv_spicy.setText(object.get("spicy").toString());
+            tv_staple.setText(object.get("staple").toString());
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
     }
 }

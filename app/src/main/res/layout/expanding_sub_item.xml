@@ -313,12 +313,13 @@
             android:layout_marginBottom="5dp"
             android:layout_toStartOf="@+id/comment_submit_btn"
             android:background="@drawable/comment_input_box"
+            android:maxLines="3"
             android:ems="10"
             android:gravity="center_vertical"
             android:hint="你的评价"
-            android:textColorHint="@color/white_gray"
             android:imeOptions="actionSearch"
             android:padding="8dp"
+            android:textColorHint="@color/white_gray"
             android:textSize="18sp">
 
             <requestFocus />

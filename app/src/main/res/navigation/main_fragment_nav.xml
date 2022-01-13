@@ -22,8 +22,7 @@
         tools:layout="@layout/fragment_recommend" />
     <fragment
         android:id="@+id/uploadFragment"
-        android:name="com.example.sjtu.UploadFragment"
+        android:name="com.example.sjtu.ShopFragment"
         android:label="fragment_upload"
-        tools:layout="@layout/fragment_upload" />
-
+        tools:layout="@layout/shopping_cart" />
 </navigation>

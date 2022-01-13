@@ -21,14 +21,38 @@
         android:label="fragment_main"
         tools:layout="@layout/fragment_main" >
         <action
+            android:id="@+id/action_mainFragment_to_shoppingFragment"
+            app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragment_recommend"
+            app:destination="@id/fragment_recommend" />
+        <action
             android:id="@+id/action_mainFragment_to_expanding_item"
             app:destination="@id/expanding_item" />
+    </fragment>
+    <fragment
+        android:id="@+id/shoppingFragment"
+        android:name="com.example.sjtu.ShopFragment"
+        android:label="fragment_shop"
+        tools:layout="@layout/shopping_cart">
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_recommend"
+        android:name="com.example.sjtu.RecommendFragment"
+        android:label="fragmentRecommend"
+        tools:layout="@layout/fragment_recommend">
     </fragment>
     <fragment
         android:id="@+id/expanding_item"
         android:name="com.example.sjtu.RecipeFragment"
         android:label="expanding_item"
         tools:layout="@layout/expanding_sub_item">
-
     </fragment>
+    <fragment
+        android:id="@+id/randomFragment2"
+        android:name="com.example.sjtu.RandomFragment"
+        android:label="fragment_random"
+        tools:layout="@layout/fragment_random" />
+
 </navigation>
