@@ -154,7 +154,7 @@ public class RandomFragment extends Fragment {
                 if (event.getAction()==MotionEvent.ACTION_UP){
                     Bundle args = new Bundle();
                     args.putString("WEB",resultWeb[0]);
-                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend,);
+                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend,args);
                 }
                 return false;
             }
