@@ -23,13 +23,22 @@
         <action
             android:id="@+id/action_mainFragment_to_shoppingFragment"
             app:destination="@id/shoppingFragment" />
+        <action
+            android:id="@+id/action_mainFragment_to_fragment_recommend"
+            app:destination="@id/fragment_recommend" />
     </fragment>
     <fragment
         android:id="@+id/shoppingFragment"
         android:name="com.example.sjtu.ShopFragment"
         android:label="fragment_shop"
-        tools:layout="@layout/shopping_cart"
-        >
+        tools:layout="@layout/shopping_cart">
+    </fragment>
+
+    <fragment
+        android:id="@+id/fragment_recommend"
+        android:name="com.example.sjtu.RecommendFragment"
+        android:label="fragmentRecommend"
+        tools:layout="@layout/fragment_recommend">
     </fragment>
 
 </navigation>

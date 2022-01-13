@@ -7,132 +7,159 @@
     android:layout_height="match_parent"
     tools:context=".RandomFragment">
 
+    <TextView
+        android:id="@+id/textViewRan"
+        style="@style/textViews2"
+        android:layout_width="399dp"
+        android:layout_height="163dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="8dp"
+        android:text="@string/randomtext"
+        app:layout_constraintBottom_toTopOf="@+id/textView1"
+        app:layout_constraintStart_toStartOf="parent" />
+
     <Button
         android:id="@+id/random"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginStart="156dp"
-        android:layout_marginBottom="88dp"
-        android:text="Random"
-        app:layout_constraintBottom_toTopOf="@+id/textViewRan"
-        app:layout_constraintStart_toStartOf="parent" />
+        style="@style/buttons1"
+        android:layout_width="390dp"
+        android:layout_height="50dp"
+        android:layout_marginStart="9dp"
+        android:layout_marginTop="4dp"
+        android:text="随机搭配"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/spinner1" />
 
     <Spinner
         android:id="@+id/spinner1"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:layout_marginBottom="201dp"
-        android:background="@color/white"
-        android:entries="@array/priceArray"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/textViewRan"
-        app:layout_constraintStart_toStartOf="parent" />
+        style="@style/spinners1"
+        android:entries="@array/priceArrayLow"
+        app:layout_constraintStart_toStartOf="@+id/textView1"
+        app:layout_constraintTop_toBottomOf="@+id/textView1" />
+
+    <Spinner
+        android:id="@+id/spinner5"
+        style="@style/spinners1"
+        android:entries="@array/priceArrayHigh"
+        app:layout_constraintStart_toStartOf="@+id/textView5"
+        app:layout_constraintTop_toBottomOf="@+id/textView5" />
 
     <Spinner
         android:id="@+id/spinner2"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="11dp"
-        android:layout_marginBottom="65dp"
-        android:background="@color/white"
+        style="@style/spinners1"
         android:entries="@array/locationArray"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/random"
-        app:layout_constraintStart_toEndOf="@+id/spinner1" />
+        app:layout_constraintStart_toStartOf="@+id/textView2"
+        app:layout_constraintTop_toBottomOf="@+id/textView2" />
 
     <Spinner
         android:id="@+id/spinner3"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="17dp"
-        android:layout_marginBottom="65dp"
-        android:background="@color/white"
+        style="@style/spinners1"
         android:entries="@array/foodArray"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/random"
-        app:layout_constraintStart_toEndOf="@+id/spinner2" />
+        app:layout_constraintStart_toStartOf="@+id/textView3"
+        app:layout_constraintTop_toBottomOf="@+id/textView3" />
 
     <Spinner
         android:id="@+id/spinner4"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:layout_marginBottom="201dp"
-        android:background="@color/white"
+        style="@style/spinners1"
         android:entries="@array/hotArray"
-        android:spinnerMode="dropdown"
-        app:layout_constraintBottom_toTopOf="@+id/textViewRan"
-        app:layout_constraintStart_toEndOf="@+id/spinner3" />
+        app:layout_constraintStart_toStartOf="@+id/textView4"
+        app:layout_constraintTop_toBottomOf="@+id/textView4" />
+
+    <TextView
+        android:id="@+id/textView5"
+        style="@style/textViews1"
+        android:text="价格上限"
+        android:textSize="15dp"
+        app:layout_constraintStart_toEndOf="@+id/textView1"
+        app:layout_constraintTop_toTopOf="@+id/textView1" />
 
     <TextView
         android:id="@+id/textView1"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="24dp"
-        android:autoSizeTextType="none"
-        android:background="#673AB7"
-        android:text="价格"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/spinner1"
+        style="@style/textViews1"
+        android:layout_marginStart="4dp"
+        android:layout_marginBottom="172dp"
+        android:text="价格下限"
+        android:textSize="15dp"
+        app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent" />
 
     <TextView
         android:id="@+id/textView2"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="11dp"
-        android:background="#673AB7"
+        style="@style/textViews1"
         android:text="位置"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/spinner2"
-        app:layout_constraintStart_toEndOf="@+id/textView1" />
+        app:layout_constraintStart_toEndOf="@+id/textView5"
+        app:layout_constraintTop_toTopOf="@+id/textView5" />
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="17dp"
-        android:background="#673AB7"
+        style="@style/textViews1"
         android:text="主食"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/spinner3"
-        app:layout_constraintStart_toEndOf="@+id/textView2" />
+        app:layout_constraintStart_toEndOf="@+id/textView2"
+        app:layout_constraintTop_toTopOf="@+id/textView2" />
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="80dp"
-        android:layout_height="50dp"
-        android:layout_marginStart="16dp"
-        android:background="#673AB7"
+        style="@style/textViews1"
         android:text="辣度"
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"
-        android:textColor="@color/white"
-        android:textSize="20dp"
-        android:gravity="center"
-        app:layout_constraintBottom_toTopOf="@+id/spinner4"
-        app:layout_constraintStart_toEndOf="@+id/textView3" />
+        app:layout_constraintStart_toEndOf="@+id/textView3"
+        app:layout_constraintTop_toTopOf="@+id/textView3" />
 
-    <TextView
-        android:id="@+id/textViewRan"
-        android:layout_width="209dp"
-        android:layout_height="180dp"
-        android:layout_marginStart="104dp"
-        android:layout_marginBottom="77dp"
-        android:ems="10"
-        android:gravity="center"
-        android:text="Random Result"
-        android:textSize="20dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+    <HorizontalScrollView
+        android:id="@+id/horizontalScrollView1"
+        android:layout_width="410dp"
+        android:layout_height="0dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="4dp"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent">
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView1"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                app:cardCornerRadius="10dp">
+
+                <WebView
+                    android:id="@+id/webView1"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent">
+
+                </WebView>
+
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView2"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="4dp"
+                app:cardCornerRadius="10dp">
+
+                <WebView
+                    android:id="@+id/webView2"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+            <androidx.cardview.widget.CardView
+                android:id="@+id/cardView3"
+                android:layout_width="200dp"
+                android:layout_height="200dp"
+                android:layout_marginStart="4dp"
+                app:cardCornerRadius="10dp">
+
+                <WebView
+                    android:id="@+id/webView3"
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent" />
+            </androidx.cardview.widget.CardView>
+
+        </LinearLayout>
+    </HorizontalScrollView>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>

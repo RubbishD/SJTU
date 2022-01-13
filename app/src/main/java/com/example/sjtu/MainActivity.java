@@ -7,6 +7,14 @@ import androidx.navigation.Navigation;
 import androidx.navigation.fragment.NavHostFragment;
 
 import android.os.Bundle;
+import android.util.Log;
+
+import com.example.sjtu.HttpRequest;
+
+import org.json.JSONArray;
+import org.json.JSONObject;
+import org.json.JSONException;
+
 
 
 public class MainActivity extends AppCompatActivity {
@@ -27,6 +35,7 @@ public class MainActivity extends AppCompatActivity {
         controller = Navigation.findNavController(this ,R.id.main_nav_host_fragment);
         if(type == 1){
             controller.setGraph(R.navigation.main_nav);
+            
         }
     }
 
