@@ -3,7 +3,7 @@ package com.example.sjtu;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class Food implements Serializable {
+public class Foodmsg implements Serializable {
 
     private static final long SerialVersionUID = 1L;
 
