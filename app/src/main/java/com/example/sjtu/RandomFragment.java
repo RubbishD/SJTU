@@ -144,6 +144,7 @@ public class RandomFragment extends Fragment {
         webRes1.loadUrl(defaultUrl);
         webRes2.loadUrl(defaultUrl);
         webRes3.loadUrl(defaultUrl);
+        String[] resultWeb = {"asdsdds"}; //start thread
 
         webRes1.setOnTouchListener(new View.OnTouchListener(){
             public boolean onTouch(View v, MotionEvent event) {
@@ -151,7 +152,9 @@ public class RandomFragment extends Fragment {
                     return false;
                 }
                 if (event.getAction()==MotionEvent.ACTION_UP){
-                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend);
+                    Bundle args = new Bundle();
+                    args.putString("WEB",resultWeb[0]);
+                    ((MainActivity)getActivity()).controller.navigate(R.id.action_mainFragment_to_fragment_recommend,);
                 }
                 return false;
             }

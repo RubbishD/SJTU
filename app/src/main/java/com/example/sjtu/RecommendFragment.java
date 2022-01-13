@@ -47,7 +47,7 @@ public class RecommendFragment extends Fragment {
         super.onCreate(savedInstanceState);
 
         if (getArguments() != null) {
-
+            String res = getArguments().getString("WEB");
         }
 
 
