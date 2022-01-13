@@ -10,20 +10,20 @@
     <TextView
         android:id="@+id/textViewRan"
         style="@style/textViews2"
-        android:layout_width="399dp"
-        android:layout_height="163dp"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="8dp"
+        android:layout_width="397dp"
+        android:layout_height="182dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="4dp"
         android:text="@string/randomtext"
-        app:layout_constraintBottom_toTopOf="@+id/textView1"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView1" />
 
     <Button
         android:id="@+id/random"
         style="@style/buttons1"
         android:layout_width="390dp"
         android:layout_height="50dp"
-        android:layout_marginStart="9dp"
+        android:layout_marginStart="12dp"
         android:layout_marginTop="4dp"
         android:text="随机搭配"
         android:textSize="25dp"
@@ -76,12 +76,12 @@
     <TextView
         android:id="@+id/textView1"
         style="@style/textViews1"
-        android:layout_marginStart="4dp"
-        android:layout_marginBottom="172dp"
+        android:layout_marginStart="12dp"
+        android:layout_marginTop="4dp"
         android:text="价格下限"
         android:textSize="15dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintStart_toStartOf="parent" />
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/textViewRan" />
 
     <TextView
         android:id="@+id/textView2"
