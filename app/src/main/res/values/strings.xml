@@ -93,7 +93,7 @@
         "when a user tries to pick up one of cards.\n\n"
     </string>
 
-    <string name="randomtext">Random Result</string>
+    <string name="randomtext">Result</string>
     <string name="error">-1</string>
 
 </resources>

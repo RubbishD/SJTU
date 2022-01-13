@@ -10,13 +10,12 @@
     <Button
         android:id="@+id/random"
         style="@style/buttons1"
-        android:layout_width="110dp"
-        android:layout_height="66dp"
-        android:layout_marginStart="136dp"
-        android:layout_marginTop="476dp"
-        android:text="Random"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        android:layout_width="190dp"
+        android:layout_height="102dp"
+        android:text="随机搭配"
+        android:textSize="25dp"
+        app:layout_constraintStart_toStartOf="@+id/cardView"
+        app:layout_constraintTop_toBottomOf="@+id/cardView" />
 
     <Spinner
         android:id="@+id/spinner1"
@@ -56,8 +55,8 @@
     <TextView
         android:id="@+id/textView1"
         style="@style/textViews1"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="304dp"
+        android:layout_marginStart="4dp"
+        android:layout_marginTop="388dp"
         android:text="价格下限"
         android:textSize="15dp"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,20 +94,28 @@
     <TextView
         android:id="@+id/textViewRan"
         style="@style/textViews2"
-        android:layout_width="194dp"
-        android:layout_height="205dp"
+        android:layout_width="192dp"
+        android:layout_height="302dp"
+        android:layout_marginStart="2dp"
         android:text="@string/randomtext"
-        app:layout_constraintStart_toEndOf="@+id/webView1"
-        app:layout_constraintTop_toTopOf="@+id/webView1" />
+        app:layout_constraintStart_toEndOf="@+id/cardView"
+        app:layout_constraintTop_toTopOf="@+id/cardView" />
 
-    <WebView
-        android:id="@+id/webView1"
-        android:layout_width="196dp"
-        android:layout_height="205dp"
-        android:layout_marginStart="8dp"
-        android:layout_marginTop="56dp"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/cardView"
+        android:layout_width="190dp"
+        android:layout_height="200dp"
+        android:layout_marginStart="14dp"
+        android:layout_marginTop="63dp"
+        app:cardCornerRadius="10dp"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toTopOf="parent">
+
+        <WebView
+            android:id="@+id/webView1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"></WebView>
+    </androidx.cardview.widget.CardView>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

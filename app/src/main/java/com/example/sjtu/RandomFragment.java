@@ -2,12 +2,15 @@ package com.example.sjtu;
 
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
+import android.graphics.Color;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
 
+import android.text.Html;
+import android.text.method.ScrollingMovementMethod;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -95,6 +98,7 @@ public class RandomFragment extends Fragment {
 
         Button randombutton = getActivity().findViewById(R.id.random);
         TextView randomres = getActivity().findViewById(R.id.textViewRan);
+        randomres.setMovementMethod(ScrollingMovementMethod.getInstance());//scroll
         //ImageView imageRes = getActivity().findViewById(R.id.imageView1);
         WebView webRes = getActivity().findViewById(R.id.webView1);
         //for storing spinners' selection results
@@ -120,7 +124,7 @@ public class RandomFragment extends Fragment {
         webSettings.setDisplayZoomControls(false);
         webSettings.setSupportZoom(true);
 
-        webRes.loadUrl("https://imgb15.photophoto.cn/20201209/zhengtaohaimianbaobaotouxianghuangsetouxiangtupian-40035084_3.jpg");
+        webRes.loadUrl("http://guangyuanol.cn/uploads/allimg/210119/2105231502-1.jpg");
 
         randombutton.setOnClickListener(new  View.OnClickListener() {
 
@@ -156,22 +160,55 @@ public class RandomFragment extends Fragment {
                 }
 
                 String imageUrl = "";
+                //text colors: Turquoise1 #00F5FF; Chartreuse2 #76EE00; DarkOrange #FF8C00; Firebrick2 #EE2C2C
+                //RoyalBlue2 #436EEE; ForestGreen #228B22;
                 try {
                     JSONArray arr = new JSONArray(resultOut[0]);
+                    if (arr.length() == 0) {
+                        String text0 = "<font color='#EE2C2C'>抱歉,未找到相应结果</font>";
+                        randomres.setText(Html.fromHtml(text0));
+                    }
+                    else if (arr.length() == 1) {
+                        JSONObject obj = arr.getJSONObject(0);
+                        String text1 = "为您推荐的菜品: <font color='#436EEE'>"+ obj.get("food")+ "</font>\n价格: <font color='#EE2C2C'>"
+                                + obj.get("price") + "</font>\n所在餐厅: " + obj.get("restaurant") + "\n窗口: " + obj.get("merchant");
+                        randomres.setText(Html.fromHtml(text1));
+                    }
+                    else if (arr.length() == 2) {
+                        JSONObject obj = arr.getJSONObject(0);
+                        JSONObject obj2 = arr.getJSONObject(1);
+                        float total = Float.parseFloat(obj.getString("price")) + Float.parseFloat(obj2.getString("price"));
+                        String text2 = "为您推荐的组合: <font color='#436EEE'>"+ obj.get("food")+ "</font> + <font color='#228B22'>"
+                                + obj2.get("food") + "</font>\n价格: <font color='#436EEE'>" + obj.get("price") +"</font> + <font color='#228B22'>"
+                                + obj2.get("price") + "</font> = <font color='#EE2C2C'>" + total + "</font>\n所在餐厅: " + obj.get("restaurant")
+                                + "\n窗口:" + obj.get("merchant") + ", " + obj2.get("merchant");
+                        randomres.setText(Html.fromHtml(text2));
+                    }
+                    else {
+                        JSONObject obj = arr.getJSONObject(0);
+                        JSONObject obj2 = arr.getJSONObject(1);
+                        JSONObject obj3 = arr.getJSONObject(2);
+                        float total = Float.parseFloat(obj.getString("price")) + Float.parseFloat(obj2.getString("price")) +
+                                Float.parseFloat(obj3.getString("price"));
+                        String text3 = "为您推荐的组合: <font color='#436EEE'>"+ obj.get("food")+ "</font> + <font color='#228B22'>"+ obj2.get("food")
+                                + "</font> + <font color='#FF8C00'>" + obj3.get("food") + "</font>\n价格: <font color='#436EEE'>" + obj.get("price")
+                                +"</font> + <font color='#228B22'>" + obj2.get("price") + "</font> + <font color='#FF8C00'>" + obj3.get("price")
+                                + "</font> = <font color='#EE2C2C'>" + total + "</font>\n所在餐厅: " + obj.get("restaurant") + "\n窗口:"
+                                + obj.get("merchant") + ", " + obj2.get("merchant")+ ", " + obj3.get("merchant");
+                        randomres.setText(Html.fromHtml(text3));
+                    }
+
+                    //randomres.setTextColor(Color.parseColor("#FFFAAA"));
                     JSONObject obj = arr.getJSONObject(0);
-                    randomres.setText("Name:"+ obj.get("food")+ "\nPrice: " + obj.get("price")
-                            + "\nRestaurant: " + obj.get("restaurant") + "\nWindow:" + obj.get("merchant")
-                            + "\n:" + obj.get("img_url")
-                    );
                     imageUrl = obj.get("img_url").toString();
+                    webRes.loadUrl(imageUrl);
+
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
 
                 //int num = getRandom();
                 //imageRes.setImageResource(imageLs[num-1]);
-                webRes.loadUrl(imageUrl);
-
             }
         });
 
