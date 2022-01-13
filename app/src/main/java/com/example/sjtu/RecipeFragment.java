@@ -31,7 +31,7 @@ public class RecipeFragment extends Fragment {
     // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
     private static final String ARG_PARAM1 = "param1";
     private static final String ARG_PARAM2 = "param2";
-    private Food food = new Food();
+    private Foodmsg food = new Foodmsg();
     private TextView tv_name;
     private TextView tv_location;
     private TextView tv_merchant;
@@ -82,7 +82,7 @@ public class RecipeFragment extends Fragment {
         if (getArguments() != null) {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
-            food = (Food) getArguments().getSerializable("INDEX");
+            food = (Foodmsg) getArguments().getSerializable("INDEX");
             String hh = getArguments().getString("String");
             System.out.println(hh+"test0000000000000000000");
 

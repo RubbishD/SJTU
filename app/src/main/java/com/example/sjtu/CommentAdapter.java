@@ -11,7 +11,7 @@ import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
 
-public abstract class commentAdapter extends BaseAdapter {
+abstract class commentAdapter extends BaseAdapter {
 
     private LayoutInflater inflater;
     private ArrayList<CommentMessage> data;

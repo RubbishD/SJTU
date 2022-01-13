@@ -1,35 +1,22 @@
 package com.example.sjtu;
 
-import android.content.Context;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
-import androidx.compose.ui.text.input.ImeAction;
 import androidx.fragment.app.Fragment;
-import androidx.navigation.Navigation;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.text.Html;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
-import android.widget.ImageView;
-import android.widget.ListView;
 
 import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.HashMap;
-import java.util.LinkedList;
-import java.util.List;
-import java.util.Map;
-import java.util.Objects;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -140,7 +127,7 @@ public class RecommendFragment extends Fragment {
             @Override
             public void onItemClick(int position) {
                 Bundle food_bd = new Bundle();
-                Food food_msg = new Food();
+                Foodmsg food_msg = new Foodmsg();
                 food_msg = get_food_data(recommendAdapter.array,position);
                 System.out.println(food_msg);
                 food_bd.putSerializable("INDEX",food_msg);
@@ -152,29 +139,29 @@ public class RecommendFragment extends Fragment {
 
     }
 
-    private Food get_food_data(JSONArray arr,int position){
-        Food food = new Food();
+    private Foodmsg get_food_data(JSONArray arr, int position){
+        Foodmsg foodmsg1 = new Foodmsg();
         try {
             JSONObject object = arr.getJSONObject(position);
-            food.setId(object.get("id").toString());
-            food.setName(object.get("food").toString());//菜名
-            food.setBuilding(object.get("building").toString());//
-            food.setFloor(object.get("floor").toString());
-            food.setRestaurant(object.get("restaurant").toString());
-            food.setMerchant(object.get("merchant").toString());
-            food.setPrice("￥"+object.get("price").toString());
-            food.setImg_url(object.get("img_url").toString());
-            food.setMorning_time(object.get("morning").toString());
-            food.setNoon_time(object.get("noon").toString());
-            food.setNight_time(object.get("night").toString());
-            food.setRaw_material(object.get("raw").toString());
-            food.setStaple(object.get("staple").toString());
-            food.setSpicy(object.get("spicy").toString());
-            food.setCalorie(object.get("calorie").toString());
+            foodmsg1.setId(object.get("id").toString());
+            foodmsg1.setName(object.get("food").toString());//菜名
+            foodmsg1.setBuilding(object.get("building").toString());//
+            foodmsg1.setFloor(object.get("floor").toString());
+            foodmsg1.setRestaurant(object.get("restaurant").toString());
+            foodmsg1.setMerchant(object.get("merchant").toString());
+            foodmsg1.setPrice("￥"+object.get("price").toString());
+            foodmsg1.setImg_url(object.get("img_url").toString());
+            foodmsg1.setMorning_time(object.get("morning").toString());
+            foodmsg1.setNoon_time(object.get("noon").toString());
+            foodmsg1.setNight_time(object.get("night").toString());
+            foodmsg1.setRaw_material(object.get("raw").toString());
+            foodmsg1.setStaple(object.get("staple").toString());
+            foodmsg1.setSpicy(object.get("spicy").toString());
+            foodmsg1.setCalorie(object.get("calorie").toString());
         } catch (JSONException e) {
             e.printStackTrace();
         }
-        return food;
+        return foodmsg1;
     }
 
     private Meal getData(JSONObject object) {
