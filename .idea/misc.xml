@@ -21,8 +21,9 @@
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_restraurant_scrolling.xml" value="0.2" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_start.xml" value="0.264" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/fragment_upload.xml" value="0.17844202898550723" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/meal_list.xml" value="0.11041666666666666" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/meal_viewholder.xml" value="0.17844202898550723" />
-        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/restaurant_viewholder.xml" value="0.17844202898550723" />
+        <entry key="..\:/seproject/SJTU/app/src/main/res/layout/restaurant_viewholder.xml" value="0.264" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/shop_empty_viewholder.xml" value="0.12760416666666666" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/shopping_cart.xml" value="0.12760416666666666" />
         <entry key="..\:/seproject/SJTU/app/src/main/res/layout/shopping_message.xml" value="0.11041666666666666" />
