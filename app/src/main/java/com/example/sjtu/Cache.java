@@ -132,15 +132,20 @@ class Food{
     public String name;
     public String raw;
     public String url;
+    public JSONObject jsonTo;
 
     public int orderNum = 0;
     public Food(String s,JSONObject json) throws JSONException {
+        jsonTo = json;
         name = s;
         price = json.getDouble("price");
         raw = json.getString("raw");
-        url = json.getString("url");
+        url = json.getString("img_url");
         calorie = json.getDouble("calorie");
 
+    }
+    public JSONObject transToJson(){
+        return jsonTo;
     }
 
 }

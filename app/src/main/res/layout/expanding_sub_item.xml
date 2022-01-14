@@ -230,31 +230,7 @@
 
         </RelativeLayout>
 
-        <RelativeLayout
-            android:layout_width="0dp"
-            android:layout_height="wrap_content"
-            android:layout_weight="1">
-            <TextView
-                android:id="@+id/single_vegetat_title"
-                style="@style/WhiteGray"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:singleLine="false"
-                android:layout_alignParentStart="true"
-                android:text="荤素" />
 
-            <TextView
-                android:id="@+id/single_vegetat"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_below="@id/single_vegetat_title"
-                android:layout_centerInParent="true"
-                android:text="荤素"
-                android:textColor="@color/black"
-                android:textSize="20sp"
-                android:textStyle="bold" />
-
-        </RelativeLayout>
 
         <RelativeLayout
             android:layout_width="0dp"
@@ -313,11 +289,11 @@
             android:layout_marginBottom="5dp"
             android:layout_toStartOf="@+id/comment_submit_btn"
             android:background="@drawable/comment_input_box"
-            android:maxLines="3"
             android:ems="10"
             android:gravity="center_vertical"
             android:hint="你的评价"
             android:imeOptions="actionSearch"
+            android:maxLines="3"
             android:padding="8dp"
             android:textColorHint="@color/white_gray"
             android:textSize="18sp">

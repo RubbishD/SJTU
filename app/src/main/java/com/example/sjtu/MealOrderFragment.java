@@ -178,32 +178,52 @@ class MealOrderAdapter extends RecyclerView.Adapter<MealOrderAdapter.ViewHolder>
     public void onBindViewHolder(ViewHolder viewHolder, final int position) {
 
         // Get element from your dataset at this position and replace the
+        int i = viewHolder.getAdapterPosition();
+        Food f = nameDataSet.get(i);
         // contents of the view with that element
-        viewHolder.mealName.setText(nameDataSet.get(position).name);
-        viewHolder.img.loadUrl(nameDataSet.get(position).url);
-        viewHolder.orderNum.setText(""+nameDataSet.get(position).orderNum);
-        viewHolder.price.setText(""+nameDataSet.get(position).price);
+        viewHolder.mealName.setText(f.name);
+        viewHolder.img.loadUrl(f.url);
+        viewHolder.orderNum.setText(""+f.orderNum);
+        viewHolder.price.setText(""+f.price);
 
         viewHolder.addBtn.setOnClickListener(v -> {
-            if(nameDataSet.get(position).orderNum==0){
+            if(f.orderNum==0){
                 c.ordered.add(data.get(position));
                     }
-            nameDataSet.get(position).orderNum++;
+            f.orderNum++;
             viewHolder.orderNum.setText(""+adapter.nameDataSet.get(position).orderNum);
 
         }
         );
         viewHolder.delBtn.setOnClickListener(v -> {
 
-            if (nameDataSet.get(position).orderNum>0){
-                nameDataSet.get(position).orderNum--;
+            if (f.orderNum>0){
+                f.orderNum--;
 
-                viewHolder.orderNum.setText( ""+adapter.nameDataSet.get(position).orderNum);
-                if(nameDataSet.get(position).orderNum==0){
-                    c.removeOrdered(nameDataSet.get(position));
+                viewHolder.orderNum.setText( ""+nameDataSet.get(position).orderNum);
+                if(f.orderNum==0){
+                    c.removeOrdered(f);
                 }
             }
         });
+        viewHolder.img.setOnTouchListener(new View.OnTouchListener(){
+            public boolean onTouch(View v, MotionEvent event) {
+                if (event.getAction()==MotionEvent.ACTION_MOVE){
+                    return false;
+                }
+                if (event.getAction()==MotionEvent.ACTION_UP){
+                    try {
+                        JSONObject json = f.transToJson();
+
+                        Bundle args = new Bundle();
+                        args.putString("food", json.toString());
+                        ((MainActivity) getActivity()).controller.navigate(R.id.action_mainFragment_to_expanding_item, args);
+
+                    }catch (Exception e) {
+                        e.printStackTrace();
+                    }}
+                return false;
+            }});
 
     }
 
