@@ -168,26 +168,6 @@ public class RecipeFragment extends Fragment {
             e.printStackTrace();
         }
 
-        btn_commit.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                String commentmsg = et_comment.getText().toString();
-                commentMessage = new CommentMessage(commentmsg);
-                commentdata.add(commentMessage);
-                long commenttime = System.currentTimeMillis();
-                commentAdapter.notifyDataSetChanged();
-                et_comment.setText("");
-
-
-            }
-        });
-
-        comment_view = getView().findViewById(R.id.food_comment_view);
-        commentAdapter = new CommentAdapter(commentdata);
-        commentLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
-        comment_view.setAdapter(commentAdapter);
-        comment_view.setLayoutManager(commentLayout);
-
 
     }
 }
