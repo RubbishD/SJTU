@@ -42,7 +42,7 @@
 
     <!-- textview style1-->
     <style name="textViews1">
-        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_width">70dp</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:autoSizeTextType">none</item>
         <item name="android:background">@color/LemonChiffon</item>
@@ -69,8 +69,9 @@
 
     <!-- spinner style1-->
     <style name="spinners1">
-        <item name="android:layout_width">80dp</item>
+        <item name="android:layout_width">70dp</item>
         <item name="android:layout_height">50dp</item>
+        <item name="android:gravity">center</item>
         <item name="android:background">@color/white</item>
         <item name="android:spinnerMode">dropdown</item>
     </style>

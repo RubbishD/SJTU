@@ -99,7 +99,7 @@ public class Cache {
         double cal = 0;
         for (Food f:ordered)
         {
-            cal+=f.price*f.orderNum;
+            cal+=f.calorie*f.orderNum;
         }
         return cal;
     }

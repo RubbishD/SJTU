@@ -219,6 +219,7 @@ class ShopAdapter extends RecyclerView.Adapter<ShopAdapter.ViewHolder> {
         viewHolder.del_btn.setOnClickListener(v->{
             foodDataSet.get(position).orderNum--;
             viewHolder.food_number.setText(""+f.orderNum);
+            view_total_price.setText(""+c.cal_total());
             if(f.orderNum==0){
                 c.removeOrdered(f);
                 notifyItemRemoved(position);
