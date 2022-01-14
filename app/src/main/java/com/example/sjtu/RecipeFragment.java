@@ -126,9 +126,6 @@ public class RecipeFragment extends Fragment {
         tv_calorie = getActivity().findViewById(R.id.single_calorie);
         tv_spicy = getActivity().findViewById(R.id.single_spicy);
         tv_staple = getActivity().findViewById(R.id.single_staple);
-        et_comment = getActivity().findViewById(R.id.comment_editText);
-        btn_commit = getActivity().findViewById(R.id.comment_submit_btn);
-        comment_view = getView().findViewById(R.id.food_comment_view);
 
         //传入参数
 
