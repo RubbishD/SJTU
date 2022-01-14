@@ -113,34 +113,34 @@
         app:barrierDirection="end"
         app:constraint_referenced_ids="meal_spicy,meal_calorie" />
 
-    <TextView
-        android:id="@+id/meal_shopping_food_number"
-        android:layout_width="40dp"
-        android:layout_height="25dp"
-        app:layout_constraintRight_toLeftOf="@id/meal_shopping_food_add"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:gravity="center"
-        android:text="0"
-        android:fontFamily="sans-serif"
-        android:textSize="14sp"
-        />
+<!--    <TextView-->
+<!--        android:id="@+id/meal_shopping_food_number"-->
+<!--        android:layout_width="40dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        app:layout_constraintRight_toLeftOf="@id/meal_shopping_food_add"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:gravity="center"-->
+<!--        android:text="0"-->
+<!--        android:fontFamily="sans-serif"-->
+<!--        android:textSize="14sp"-->
+<!--        />-->
 
-    <ImageView
-        android:id="@+id/meal_shopping_food_reduce"
-        android:layout_width="25dp"
-        android:layout_height="25sp"
-        app:layout_constraintRight_toLeftOf="@id/meal_shopping_food_number"
-        app:layout_constraintBottom_toBottomOf="parent"
-        android:src="@mipmap/reduce"/>
+<!--    <ImageView-->
+<!--        android:id="@+id/meal_shopping_food_reduce"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25sp"-->
+<!--        app:layout_constraintRight_toLeftOf="@id/meal_shopping_food_number"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        android:src="@mipmap/reduce"/>-->
 
-    <ImageView
-        android:id="@+id/meal_shopping_food_add"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintRight_toRightOf="parent"
-        android:src="@mipmap/add"
-        />
+<!--    <ImageView-->
+<!--        android:id="@+id/meal_shopping_food_add"-->
+<!--        android:layout_width="25dp"-->
+<!--        android:layout_height="25dp"-->
+<!--        app:layout_constraintBottom_toBottomOf="parent"-->
+<!--        app:layout_constraintRight_toRightOf="parent"-->
+<!--        android:src="@mipmap/add"-->
+<!--        />-->
 
     <TextView
         android:id="@+id/meal_food_name"

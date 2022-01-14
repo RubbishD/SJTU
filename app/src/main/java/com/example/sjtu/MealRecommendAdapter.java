@@ -271,9 +271,9 @@ public class MealRecommendAdapter extends RecyclerView.Adapter<MealRecommendAdap
         private final TextView location;
         private final TextView calorie;
         private final TextView spicy;
-        private final ImageView addbtn;
-        private final ImageView reducebtn;
-        private final TextView number;
+//        private final ImageView addbtn;
+//        private final ImageView reducebtn;
+//        private final TextView number;
         private final TextView name;
 
 
@@ -284,9 +284,9 @@ public class MealRecommendAdapter extends RecyclerView.Adapter<MealRecommendAdap
             location = view.findViewById(R.id.meal_location);
             calorie = view.findViewById(R.id.meal_calorie);
             spicy = view.findViewById(R.id.meal_spicy);
-            addbtn = view.findViewById(R.id.meal_shopping_food_add);
-            reducebtn = view.findViewById(R.id.meal_shopping_food_reduce);
-            number = view.findViewById(R.id.meal_shopping_food_number);
+//            addbtn = view.findViewById(R.id.meal_shopping_food_add);
+//            reducebtn = view.findViewById(R.id.meal_shopping_food_reduce);
+//            number = view.findViewById(R.id.meal_shopping_food_number);
             name = view.findViewById(R.id.meal_food_name);
         }
 
@@ -313,9 +313,9 @@ public class MealRecommendAdapter extends RecyclerView.Adapter<MealRecommendAdap
             return name;
         }
 
-        public TextView getNumber() {
-            return number;
-        }
+//        public TextView getNumber() {
+//            return number;
+//        }
     }
 
     public MealRecommendAdapter(ArrayList<Meal> dataSet, JSONArray arr) {
@@ -350,12 +350,12 @@ public class MealRecommendAdapter extends RecyclerView.Adapter<MealRecommendAdap
     }
 
     private void init(ViewHolder viewHolder,int position){
-        viewHolder.addbtn.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-
-            }
-        });
+//        viewHolder.addbtn.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View v) {
+//
+//            }
+//        });
         viewHolder.name.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
