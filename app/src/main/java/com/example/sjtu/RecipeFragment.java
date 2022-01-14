@@ -6,6 +6,7 @@ import android.os.Bundle;
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.view.LayoutInflater;
@@ -23,6 +24,7 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.util.ArrayList;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -53,6 +55,10 @@ public class RecipeFragment extends Fragment {
     private Button btn_commit;
     private RecyclerView comment_view;
     private JSONObject object;
+    private CommentMessage commentMessage;
+    private ArrayList<CommentMessage> commentdata = new ArrayList<>();
+    private CommentAdapter commentAdapter;
+    private RecyclerView.LayoutManager commentLayout;
 
 
     // TODO: Rename and change types of parameters
@@ -88,6 +94,7 @@ public class RecipeFragment extends Fragment {
             mParam1 = getArguments().getString(ARG_PARAM1);
             mParam2 = getArguments().getString(ARG_PARAM2);
             String data =getArguments().getString("food");
+            int a =1;
             try {
                 //to debug
                 object = new JSONObject(data);
@@ -119,7 +126,6 @@ public class RecipeFragment extends Fragment {
         tv_calorie = getActivity().findViewById(R.id.single_calorie);
         tv_spicy = getActivity().findViewById(R.id.single_spicy);
         tv_staple = getActivity().findViewById(R.id.single_staple);
-        tv_veg = getActivity().findViewById(R.id.single_vegetat);
         et_comment = getActivity().findViewById(R.id.comment_editText);
         btn_commit = getActivity().findViewById(R.id.comment_submit_btn);
         comment_view = getView().findViewById(R.id.food_comment_view);
@@ -133,7 +139,7 @@ public class RecipeFragment extends Fragment {
         webSettings.setDisplayZoomControls(false);
         webSettings.setSupportZoom(true);
 
-        try {
+        try{
             img.loadUrl(object.get("img_url").toString());
             tv_name.setText(object.get("food").toString());
             tv_location.setText(object.get("building").toString()+object.get("floor").toString()+object.get("restaurant").toString());
@@ -161,5 +167,27 @@ public class RecipeFragment extends Fragment {
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        btn_commit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String commentmsg = et_comment.getText().toString();
+                commentMessage = new CommentMessage(commentmsg);
+                commentdata.add(commentMessage);
+                long commenttime = System.currentTimeMillis();
+                commentAdapter.notifyDataSetChanged();
+                et_comment.setText("");
+
+
+            }
+        });
+
+        comment_view = getView().findViewById(R.id.food_comment_view);
+        commentAdapter = new CommentAdapter(commentdata);
+        commentLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        comment_view.setAdapter(commentAdapter);
+        comment_view.setLayoutManager(commentLayout);
+
+
     }
 }
