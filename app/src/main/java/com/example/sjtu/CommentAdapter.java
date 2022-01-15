@@ -357,15 +357,15 @@ public class CommentAdapter extends RecyclerView.Adapter<CommentAdapter.commentV
     @Override
     public void onBindViewHolder(@NonNull commentViewHolder holder, int position) {
         holder.comment.setText(commentmsg.get(position).getComment());
-        SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm");
-        String time=format.format(new Date(CommentMessage.getTime()));
-        holder.comment_time.setText(time);
+        holder.comment_time.setText(commentmsg.get(position).getTime());
     }
 
     @Override
     public int getItemCount() {
-        return 0;
+        return commentmsg.size();
     }
+
+
 }
 
 

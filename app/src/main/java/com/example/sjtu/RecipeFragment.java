@@ -24,7 +24,10 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
+import java.nio.charset.StandardCharsets;
+import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Date;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -98,6 +101,7 @@ public class RecipeFragment extends Fragment {
             try {
                 //to debug
                 object = new JSONObject(data);
+
             } catch (JSONException e) {
                 e.printStackTrace();
             }
@@ -126,6 +130,62 @@ public class RecipeFragment extends Fragment {
         tv_calorie = getActivity().findViewById(R.id.single_calorie);
         tv_spicy = getActivity().findViewById(R.id.single_spicy);
         tv_staple = getActivity().findViewById(R.id.single_staple);
+        et_comment = getActivity().findViewById(R.id.comment_editText);
+        btn_commit = getActivity().findViewById(R.id.comment_submit_btn);
+        comment_view = getView().findViewById(R.id.food_comment_view);
+
+        String param = null;
+        try {
+            param = "id="+object.get("id").toString();
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+        class RanRunable implements Runnable {
+            String param;
+            String[] result;
+
+            public RanRunable(String param1, String[] param2) {
+                param = param1;
+                result = param2;
+            }
+
+            @Override
+            public void run() {
+                HttpRequest request = new HttpRequest();
+                String url0 = "http://119.3.110.15:33/request_comment"; // http://119.3.110.15:33
+                // param = "username=root&message=123"; // param string of get request
+                result[0] = request.get((url0 + "?" + param));
+            }
+        }
+
+        String[] resultOut = {"[{\"id\":23}]"}; //start thread
+
+        try {
+            RanRunable r1 = new RanRunable(param, resultOut);
+            Thread t = new Thread(r1);
+            t.start();
+            t.join();
+        } catch (InterruptedException e) {
+            e.printStackTrace();
+        }
+
+        //格式转换
+        JSONArray arr = new JSONArray();
+        try {
+            arr = new JSONArray(resultOut[0]);
+            ArrayList<CommentMessage> comment_data = new ArrayList<>();
+            for (int i = 0; i < arr.length(); i++) {
+                JSONObject obj = arr.getJSONObject(i);
+                CommentMessage data = new CommentMessage(obj.get("comment").toString(),obj.get("time").toString());
+                comment_data.add(data);
+            }
+            commentdata = comment_data;
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+
 
         //传入参数
 
@@ -161,9 +221,60 @@ public class RecipeFragment extends Fragment {
             tv_calorie.setText(object.get("calorie").toString());
             tv_spicy.setText(object.get("spicy").toString());
             tv_staple.setText(object.get("staple").toString());
+
         } catch (JSONException e) {
             e.printStackTrace();
         }
+
+        btn_commit.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                String commentmsg = et_comment.getText().toString();
+                SimpleDateFormat format= new SimpleDateFormat("yyyy-MM-dd HH:mm");
+                String time=format.format(new Date(System.currentTimeMillis()));
+                commentMessage = new CommentMessage(commentmsg,time);
+                commentdata.add(commentMessage);
+                commentAdapter.notifyItemChanged(commentdata.size(),commentMessage);
+                et_comment.setText("");
+                class Ranable implements Runnable {
+                    String param;
+
+                    public Ranable(String param1) {
+                        param = param1;
+                    }
+
+                    @Override
+                    public void run() {
+                        HttpRequest request = new HttpRequest();
+                        String url0 = "http://119.3.110.15:33/upload_comment"; // http://119.3.110.15:33
+                        // param = "username=root&message=123"; // param string of get request
+                        String test = request.get((url0 + "?" + param));
+                    }
+                }
+
+                String[] resultOut = {"[{\"id\":23}]"}; //start thread
+
+                try {
+                    String[] string = {commentmsg};
+                    String post = "id="+object.get("id").toString()+"&comment="+string[0];
+                    Ranable r1 = new Ranable(post);
+                    Thread t = new Thread(r1);
+                    t.start();
+                    t.join();
+                } catch (JSONException | InterruptedException e) {
+                    e.printStackTrace();
+                }
+
+
+            }
+        });
+        ArrayList<CommentMessage> data = new ArrayList<>();
+
+        comment_view = getView().findViewById(R.id.food_comment_view);
+        commentAdapter = new CommentAdapter(commentdata);
+        commentLayout = new LinearLayoutManager(getActivity(), LinearLayoutManager.VERTICAL, false);
+        comment_view.setAdapter(commentAdapter);
+        comment_view.setLayoutManager(commentLayout);
 
 
     }

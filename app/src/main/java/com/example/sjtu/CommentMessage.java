@@ -1,20 +1,20 @@
 package com.example.sjtu;
 
 public class CommentMessage {
-    private static long time;
+    private String time;
     private String comment;
 
-    public CommentMessage(String comment,long time){
+    public CommentMessage(String comment,String time){
         this.time = time;
         this.comment = comment;
     }
 
 
-    public static long getTime() {
+    public String getTime() {
         return time;
     }
 
-    public void setTime(long time) {
+    public void setTime(String time) {
         this.time = time;
     }
 
