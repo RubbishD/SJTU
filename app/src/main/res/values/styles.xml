@@ -42,7 +42,7 @@
 
     <!-- textview style1-->
     <style name="textViews1">
-        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:autoSizeTextType">none</item>
         <item name="android:background">@color/LemonChiffon</item>
@@ -51,6 +51,7 @@
         <item name="android:textSize">15dp</item>
         <item name="android:gravity">center</item>
     </style>
+
     <!-- textview style2-->
     <style name="textViews2">
         <item name="android:autoSizeTextType">none</item>
@@ -67,9 +68,16 @@
         <item name="android:focusableInTouchMode">true</item>
     </style>
 
+    <!-- constraint layout style1-->
+    <style name="conlayout1">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">0dp</item>
+        <item name="android:layout_weight">1</item>
+    </style>
+
     <!-- spinner style1-->
     <style name="spinners1">
-        <item name="android:layout_width">70dp</item>
+        <item name="android:layout_width">match_parent</item>
         <item name="android:layout_height">50dp</item>
         <item name="android:gravity">center</item>
         <item name="android:background">@color/white</item>
