@@ -24,7 +24,6 @@ import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.io.Serializable;
-import java.nio.charset.StandardCharsets;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
 import java.util.Date;
@@ -255,8 +254,7 @@ public class RecipeFragment extends Fragment {
                 String[] resultOut = {"[{\"id\":23}]"}; //start thread
 
                 try {
-                    String[] string = {commentmsg};
-                    String post = "id="+object.get("id").toString()+"&comment="+string[0];
+                    String post = "id="+object.get("id").toString()+"&comment="+commentmsg;
                     Ranable r1 = new Ranable(post);
                     Thread t = new Thread(r1);
                     t.start();
